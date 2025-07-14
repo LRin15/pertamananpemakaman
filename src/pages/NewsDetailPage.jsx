@@ -80,6 +80,223 @@ const NewsDetailPage = ({ onNavigate, newsId }) => {
       likes: 156,
       shares: 45,
     },
+    {
+      id: 3,
+      title:
+        "Kebijakan Baru: Izin Pemakaman Digital Mulai Berlaku Januari 2025",
+      excerpt:
+        "Sistem perizinan pemakaman digital akan segera diimplementasikan untuk mempermudah masyarakat dalam mengurus administrasi pemakaman.",
+      content: `
+        <p>Jakarta - Mulai Januari 2025, Dinas Pertamanan dan Hutan Kota DKI Jakarta akan menerapkan sistem perizinan pemakaman digital. Sistem ini memungkinkan masyarakat untuk mengurus izin pemakaman secara online tanpa perlu datang langsung ke kantor dinas.</p>
+
+        <p>Fitur-fitur yang tersedia meliputi pengajuan izin, pembayaran retribusi, dan tracking status permohonan secara real-time. Sistem ini dikembangkan untuk meningkatkan efisiensi pelayanan dan mengurangi waktu tunggu masyarakat dalam mengurus administrasi pemakaman.</p>
+
+        <h3>Fitur Unggulan Sistem Digital</h3>
+        <p>Sistem perizinan digital ini dilengkapi dengan berbagai fitur canggih yang memudahkan masyarakat. Fitur-fitur tersebut meliputi pendaftaran online 24/7, upload dokumen digital, pembayaran online terintegrasi, tracking real-time status permohonan, notifikasi WhatsApp dan email, dan sistem antrian digital.</p>
+
+        <p>Kepala Dinas Pertamanan dan Hutan Kota DKI Jakarta, Ahmad Rizki, mengatakan bahwa sistem ini akan mengurangi waktu pengurusan dari 3-5 hari menjadi maksimal 24 jam untuk kasus normal.</p>
+
+        <h3>Cara Menggunakan Sistem</h3>
+        <p>Untuk menggunakan sistem perizinan digital ini, masyarakat dapat mengakses portal resmi dinas melalui website atau aplikasi mobile. Proses pengajuan meliputi registrasi akun, upload dokumen persyaratan, pengisian formulir online, pembayaran retribusi, dan tracking permohonan hingga selesai.</p>
+
+        <p>"Kami berkomitmen untuk memberikan pelayanan terbaik bagi masyarakat Jakarta. Sistem digital ini adalah wujud nyata transformasi digital dalam pelayanan publik," ungkap Ahmad Rizki.</p>
+            `,
+      fullImage: "/images/pemakamandigita;.jpeg",
+      author: "Ahmad Rizki",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Kepala Dinas Pertamanan dan Hutan Kota DKI Jakarta dengan fokus pada transformasi digital pelayanan publik.",
+      date: "2024-12-15",
+      readTime: "6 menit",
+      category: "kebijakan",
+      categoryColor: "bg-purple-100 text-purple-800",
+      tags: ["digital", "perizinan", "pemakaman", "online", "transformasi"],
+      location: "DKI Jakarta",
+      views: 1456,
+      likes: 123,
+      shares: 67,
+    },
+    {
+      id: 4,
+      title: "Festival Bunga Tahunan Jakarta 2024 Siap Digelar di Monas",
+      excerpt:
+        "Festival bunga tahunan Jakarta akan menampilkan berbagai jenis bunga langka dan eksotis dari seluruh nusantara.",
+      content: `
+        <p>Jakarta - Festival Bunga Tahunan Jakarta 2024 akan diselenggarakan di area Monas pada 25-31 Desember 2024. Acara ini menampilkan lebih dari 500 jenis bunga langka dan eksotis dari berbagai daerah di Indonesia.</p>
+
+        <p>Pengunjung dapat menikmati pameran bunga, workshop berkebun, dan kompetisi fotografi dengan tema 'Keindahan Alam Jakarta'. Festival ini diharapkan dapat meningkatkan kesadaran masyarakat tentang pentingnya pelestarian tanaman hias dan bunga langka.</p>
+
+        <h3>Rangkaian Acara Festival</h3>
+        <p>Festival Bunga Tahunan Jakarta 2024 menyajikan berbagai rangkaian acara menarik. Acara-acara tersebut meliputi pameran bunga langka Indonesia, workshop berkebun untuk pemula, kompetisi fotografi bunga, seminar pelestarian tanaman hias, bazaar tanaman dan bunga, dan pertunjukan seni budaya nusantara.</p>
+
+        <p>Lisa Pratiwi, koordinator acara, mengatakan bahwa festival ini akan menjadi ajang edukasi sekaligus rekreasi untuk seluruh keluarga. "Kami ingin memperkenalkan kekayaan flora Indonesia kepada masyarakat Jakarta," katanya.</p>
+
+        <h3>Partisipasi Komunitas</h3>
+        <p>Festival ini juga melibatkan berbagai komunitas pecinta tanaman dari seluruh Jakarta. Lebih dari 50 komunitas akan berpartisipasi dalam acara ini, mulai dari komunitas kaktus, anggrek, hingga tanaman hias indoor.</p>
+
+        <p>Tiket masuk festival gratis untuk umum, dengan harapan dapat menarik sebanyak mungkin pengunjung untuk belajar tentang keindahan dan keragaman flora Indonesia.</p>
+            `,
+      fullImage:
+        "https://i.pinimg.com/1200x/b4/29/ff/b429ff88a01edd815809e9c9012f9744.jpg",
+      author: "Lisa Pratiwi",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Event coordinator dan botanical enthusiast dengan pengalaman 10 tahun dalam menyelenggarakan acara bertema alam.",
+      date: "2024-12-12",
+      readTime: "3 menit",
+      category: "acara",
+      categoryColor: "bg-pink-100 text-pink-800",
+      tags: ["festival", "bunga", "monas", "jakarta", "edukasi"],
+      location: "Monumen Nasional, Jakarta Pusat",
+      views: 892,
+      likes: 234,
+      shares: 89,
+    },
+    {
+      id: 5,
+      title:
+        "Teknologi AI Digunakan untuk Monitoring Kesehatan Pohon di Jakarta",
+      excerpt:
+        "Inovasi terbaru menggunakan kecerdasan buatan untuk memantau kondisi kesehatan pohon-pohon di seluruh Jakarta secara real-time.",
+      content: `
+        <p>Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta mengimplementasikan teknologi Artificial Intelligence (AI) untuk monitoring kesehatan pohon di seluruh wilayah Jakarta. Sistem ini dapat mendeteksi penyakit pohon, tingkat stress, dan prediksi umur pohon dengan akurasi tinggi.</p>
+
+        <p>Teknologi ini membantu petugas dalam melakukan perawatan preventif dan mengurangi risiko pohon tumbang. Sistem AI ini menggunakan sensor IoT yang dipasang pada pohon-pohon strategis di seluruh Jakarta.</p>
+
+        <h3>Cara Kerja Teknologi AI</h3>
+        <p>Sistem monitoring ini menggunakan kombinasi sensor dan algoritma machine learning. Teknologi yang digunakan meliputi sensor kelembaban tanah dan udara, kamera thermal untuk deteksi stress pohon, sensor getaran untuk deteksi stabilitas batang, algoritma machine learning untuk analisis data, dan dashboard real-time untuk monitoring.</p>
+
+        <p>Dr. Bambang Sutrisno, yang memimpin proyek ini, menjelaskan bahwa sistem dapat memberikan early warning jika ada pohon yang berpotensi tumbang hingga 2 minggu sebelumnya.</p>
+
+        <h3>Manfaat untuk Masyarakat</h3>
+        <p>Implementasi teknologi AI ini memberikan berbagai manfaat signifikan bagi masyarakat Jakarta. Manfaat-manfaat tersebut antara lain peningkatan keamanan dari risiko pohon tumbang, optimalisasi perawatan pohon, peningkatan kualitas udara kota, data untuk perencanaan tata ruang hijau, dan efisiensi penggunaan sumber daya.</p>
+
+        <p>"Teknologi ini adalah investasi jangka panjang untuk keselamatan dan kenyamanan masyarakat Jakarta. Kami berharap dapat memperluas sistem ini ke seluruh pohon di Jakarta dalam 3 tahun ke depan," kata Dr. Bambang.</p>
+            `,
+      fullImage:
+        "https://i.pinimg.com/736x/e1/c0/e7/e1c0e7167388a7e6156f9b4193fcefcf.jpg",
+      author: "Dr. Bambang Sutrisno",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Doktor di bidang Teknologi Lingkungan dengan spesialisasi AI untuk monitoring ekosistem urban.",
+      date: "2024-12-10",
+      readTime: "7 menit",
+      category: "teknologi",
+      categoryColor: "bg-blue-100 text-blue-800",
+      tags: ["AI", "teknologi", "monitoring", "pohon", "smart city"],
+      location: "Seluruh Jakarta",
+      views: 2134,
+      likes: 345,
+      shares: 156,
+    },
+    {
+      id: 6,
+      title: "Kolaborasi dengan Komunitas untuk Pengelolaan Taman Lingkungan",
+      excerpt:
+        "Program kemitraan dengan komunitas lokal untuk pengelolaan dan perawatan taman-taman lingkungan di Jakarta.",
+      content: `
+        <p>Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta meluncurkan program kolaborasi dengan berbagai komunitas lokal untuk pengelolaan taman lingkungan. Program 'Jakarta Hijau Bersama' ini melibatkan 50 komunitas yang tersebar di lima wilayah Jakarta.</p>
+
+        <p>Setiap komunitas akan bertanggung jawab dalam perawatan, pemeliharaan, dan pengembangan kreativitas di taman-taman sekitar mereka. Program ini bertujuan untuk meningkatkan rasa memiliki masyarakat terhadap ruang terbuka hijau di lingkungan mereka.</p>
+
+        <h3>Model Kemitraan</h3>
+        <p>Program kolaborasi ini menggunakan model kemitraan yang saling menguntungkan. Model kemitraan meliputi adopsi taman oleh komunitas, pelatihan teknis dari dinas, bantuan bibit dan alat berkebun, monitoring berkala oleh petugas dinas, dan apresiasi untuk komunitas berprestasi.</p>
+
+        <p>Rina Marlina, koordinator program, mengatakan bahwa antusiasme komunitas sangat tinggi. "Mereka tidak hanya merawat, tapi juga mengembangkan konsep kreatif untuk taman-taman tersebut," ungkapnya.</p>
+
+        <h3>Dampak Positif Program</h3>
+        <p>Program ini telah memberikan dampak positif yang signifikan bagi lingkungan dan masyarakat. Dampak-dampak tersebut antara lain peningkatan kualitas taman lingkungan, penguatan ikatan sosial masyarakat, edukasi lingkungan berkelanjutan, pengembangan kreativitas komunitas, dan pengurangan biaya perawatan taman.</p>
+
+        <p>Ke depannya, program ini akan diperluas ke seluruh RW di Jakarta dengan target 200 komunitas pada tahun 2025. "Kami yakin partisipasi masyarakat adalah kunci kesuksesan program penghijauan Jakarta," kata Rina.</p>
+            `,
+      fullImage:
+        "https://i.pinimg.com/1200x/56/02/8e/56028ea8ac3dabc5b744c88669966150.jpg",
+      author: "Rina Marlina",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Community engagement specialist dengan fokus pada program partisipatif lingkungan dan pengembangan masyarakat.",
+      date: "2024-12-08",
+      readTime: "5 menit",
+      category: "komunitas",
+      categoryColor: "bg-green-100 text-green-800",
+      tags: ["kolaborasi", "komunitas", "taman", "partisipasi", "lingkungan"],
+      location: "Seluruh DKI Jakarta",
+      views: 1678,
+      likes: 289,
+      shares: 134,
+    },
+    {
+      id: 7,
+      title: "Hutan Kota Srengseng Kembali Dibuka untuk Publik",
+      excerpt:
+        "Setelah renovasi selama 6 bulan, Hutan Kota Srengseng kembali dibuka dengan fasilitas yang lebih lengkap dan modern.",
+      content: `
+        <p>Jakarta - Hutan Kota Srengseng resmi dibuka kembali untuk publik setelah menjalani renovasi besar-besaran selama 6 bulan. Renovasi ini mencakup perbaikan jalur tracking, penambahan gazebo, area playground anak, dan fasilitas toilet yang lebih bersih.</p>
+
+        <p>Hutan kota seluas 15 hektar ini juga dilengkapi dengan papan informasi digital dan sistem keamanan CCTV untuk kenyamanan pengunjung. Renovasi ini merupakan bagian dari program peningkatan kualitas ruang terbuka hijau di Jakarta.</p>
+
+        <h3>Fasilitas Baru</h3>
+        <p>Renovasi Hutan Kota Srengseng menghadirkan berbagai fasilitas baru yang modern dan ramah lingkungan. Fasilitas-fasilitas baru tersebut meliputi jalur jogging sepanjang 2 km dengan surface karet, area playground anak dengan permainan edukatif, 15 gazebo dengan desain modern, toilet umum dengan sistem ramah lingkungan, papan informasi digital interaktif, dan sistem keamanan CCTV 24 jam.</p>
+
+        <p>Yudi Hermawan, pengelola hutan kota, mengatakan bahwa semua fasilitas dirancang untuk mendukung aktivitas rekreasi dan edukasi lingkungan. "Kami ingin Hutan Kota Srengseng menjadi destinasi favorit keluarga Jakarta Barat," katanya.</p>
+
+        <h3>Program Edukasi</h3>
+        <p>Selain sebagai tempat rekreasi, Hutan Kota Srengseng juga akan menjadi pusat edukasi lingkungan. Program edukasi yang ditawarkan meliputi tur edukasi flora fauna, workshop berkebun organik, kelas fotografi alam, camping edukasi untuk pelajar, dan seminar konservasi lingkungan.</p>
+
+        <p>Hutan kota ini buka setiap hari dari pukul 05.00-18.00 WIB dengan tiket masuk gratis. Pengunjung diharapkan menjaga kebersihan dan kelestarian lingkungan hutan kota.</p>
+            `,
+      fullImage:
+        "https://i.pinimg.com/736x/19/72/8a/19728a39a4361e274f0c3cfe1b38bcb5.jpg",
+      author: "Yudi Hermawan",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Pengelola hutan kota dengan pengalaman 15 tahun dalam manajemen ruang terbuka hijau dan program edukasi lingkungan.",
+      date: "2024-12-05",
+      readTime: "4 menit",
+      category: "fasilitas",
+      categoryColor: "bg-orange-100 text-orange-800",
+      tags: ["hutan kota", "srengseng", "renovasi", "fasilitas", "rekreasi"],
+      location: "Hutan Kota Srengseng, Jakarta Barat",
+      views: 1234,
+      likes: 198,
+      shares: 76,
+    },
+    {
+      id: 8,
+      title: "Workshop Edukasi Lingkungan untuk Siswa SD se-Jakarta",
+      excerpt:
+        "Program edukasi lingkungan untuk meningkatkan kesadaran siswa sekolah dasar tentang pentingnya menjaga kelestarian alam.",
+      content: `
+        <p>Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta menggelar workshop edukasi lingkungan untuk siswa SD se-Jakarta. Program 'Generasi Hijau Jakarta' ini bertujuan mengenalkan pentingnya kelestarian lingkungan sejak dini.</p>
+
+        <p>Materi workshop meliputi cara menanam, merawat tanaman, pengelolaan sampah, dan pemahaman ekosistem. Hingga saat ini, lebih dari 10.000 siswa telah mengikuti program ini dengan antusiasme yang sangat tinggi.</p>
+
+        <h3>Metode Pembelajaran</h3>
+        <p>Workshop ini menggunakan metode pembelajaran yang menyenangkan dan interaktif untuk anak-anak. Metode pembelajaran meliputi praktik langsung menanam bibit, permainan edukatif tentang lingkungan, storytelling tentang alam, eksperimen sederhana ekosistem, kunjungan ke taman dan hutan kota, dan kompetisi kreativitas ramah lingkungan.</p>
+
+        <p>Sari Indrawati, koordinator program edukasi, mengatakan bahwa anak-anak sangat antusias belajar tentang lingkungan. "Mereka tidak hanya belajar teori, tapi juga praktik langsung yang membuat pembelajaran menjadi menyenangkan," ungkapnya.</p>
+
+        <h3>Dampak Program</h3>
+        <p>Program edukasi ini telah memberikan dampak positif yang signifikan terhadap kesadaran lingkungan siswa. Dampak program meliputi peningkatan kesadaran lingkungan siswa, pembentukan karakter peduli alam, pengembangan keterampilan berkebun, penguatan program sekolah hijau, dan terbentuknya agen perubahan lingkungan di sekolah.</p>
+
+        <p>Ke depannya, program ini akan diperluas ke tingkat SMP dan SMA dengan materi yang lebih mendalam. "Kami berharap generasi muda Jakarta menjadi pionir dalam pelestarian lingkungan," kata Sari.</p>
+            `,
+      fullImage:
+        "https://i.pinimg.com/736x/62/21/15/622115c29ee38c690bd897f4e85d230f.jpg",
+      author: "Sari Indrawati",
+      authorImage: "/images/logo.png",
+      authorBio:
+        "Education specialist dengan fokus pada program edukasi lingkungan dan pengembangan kurikulum ramah lingkungan untuk anak-anak.",
+      date: "2024-12-03",
+      readTime: "5 menit",
+      category: "edukasi",
+      categoryColor: "bg-teal-100 text-teal-800",
+      tags: ["workshop", "edukasi", "siswa", "lingkungan", "sekolah"],
+      location: "Seluruh Sekolah Dasar Jakarta",
+      views: 987,
+      likes: 156,
+      shares: 45,
+    },
   ];
 
   useEffect(() => {
