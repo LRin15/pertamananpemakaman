@@ -548,7 +548,7 @@ export default function LandingPage({ onNavigate }) {
     <main className="min-h-screen">
       <HeroCarousel />
       <ServicesSection onNavigate={onNavigate} />
-      <NewsSection />
+      <NewsSection onNavigate={onNavigate} />
       <StatisticsSection />
     </main>
   );
