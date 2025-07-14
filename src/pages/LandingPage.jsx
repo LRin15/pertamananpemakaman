@@ -290,33 +290,37 @@ const NewsCard = ({
 );
 
 const NewsSection = ({ onNavigate }) => {
+  // Use actual news data from NewsPage - showing latest 3 articles
   const newsItems = [
     {
       id: 1,
-      imageUrl: "/images/tpu-taman-kusir.jpg",
-      date: "8 Januari 2025",
-      title: "Peningkatan Fasilitas Taman Pemakaman Tanah Kusir",
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJsStQ7Vuiz7KFomVc3_afFd0kXFLHD6SMQ2mSm0tasRTUg1kcynCOQdyoPzJXPUFbYvtxVRIkC_ovopzBJH0mizSQMFG5reIWirma2-hRzA",
+      date: "20 Desember 2024",
+      title: "Program Penanaman 10.000 Pohon di Jakarta Selatan Dimulai",
       excerpt:
-        "Dinas Pertamanan dan Pemakaman DKI Jakarta melakukan renovasi dan peningkatan fasilitas di Taman Pemakaman Tanah Kusir untuk memberikan kenyamanan lebih bagi pengunjung.",
-      category: "Fasilitas",
+        "Dinas Pertamanan dan Hutan Kota DKI Jakarta memulai program massal penanaman pohon untuk meningkatkan kualitas udara di ibu kota.",
+      category: "Program",
     },
     {
       id: 2,
-      imageUrl: "/images/taman-langsat.jpg",
-      date: "6 Januari 2025",
-      title: "5 Taman di Jakarta yang Buka 24 Jam & Info Fasilitas",
+      imageUrl:
+        "https://i.pinimg.com/736x/db/03/ee/db03ee38babbb163567aa0397e0b26a4.jpg",
+      date: "18 Desember 2024",
+      title: "Taman Menteng Raih Penghargaan Taman Terbaik Se-Asia Tenggara",
       excerpt:
-        "Pembukaan taman 24 jam di Jakarta ini sebagai bagian dari Quick Win 100 Hari Kinerja Gubernur dan Wakil Gubernur Jakarta. Kamu bisa mengajak keluarga atau teman untuk sejenak duduk-duduk di taman menikmati suasana alam dengan asri.",
-      category: "Fasilitas",
+        "Taman Menteng berhasil meraih penghargaan sebagai taman kota terbaik se-Asia Tenggara berkat inovasi konsep ramah lingkungan.",
+      category: "Prestasi",
     },
     {
       id: 3,
-      imageUrl: "/images/pembersihan-tpu.jpg",
-      date: "4 Januari 2025",
-      title: "Program Perawatan Makam Berkelanjutan",
+      imageUrl: "/images/pemakamandigita;.jpeg",
+      date: "15 Desember 2024",
+      title:
+        "Kebijakan Baru: Izin Pemakaman Digital Mulai Berlaku Januari 2025",
       excerpt:
-        "Inisiatif baru untuk perawatan makam berkelanjutan dengan melibatkan partisipasi masyarakat dalam menjaga kebersihan dan keindahan area pemakaman.",
-      category: "Program",
+        "Sistem perizinan pemakaman digital akan segera diimplementasikan untuk mempermudah masyarakat dalam mengurus administrasi pemakaman.",
+      category: "Kebijakan",
     },
   ];
 
