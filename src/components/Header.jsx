@@ -118,7 +118,7 @@ const Header = ({ onNavigate, isLoggedIn, onLogout }) => {
       onNavigate(action);
     }
     setActiveMenu(name);
-    setServicesDropdownOpen(false);
+    setOpenDropdown(null);
     setProfileDropdownOpen(false);
     setMobileMenuOpen(false);
   };
