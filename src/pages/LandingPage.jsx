@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -14,7 +14,7 @@ import {
   CalendarCheck,
   Trees,
   Sprout,
-} from "lucide-react"
+} from "lucide-react";
 
 // Tambahkan ini di bagian import di atas
 import {
@@ -25,13 +25,13 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
-  Legend
+  Legend,
 } from "recharts";
 
 // Carousel Gambar Tampilan Awal
 const HeroCarousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   const slides = [
     {
@@ -52,24 +52,24 @@ const HeroCarousel = () => {
       description:
         "Komitmen kami memberikan pelayanan terbaik dengan sistem digital yang memudahkan masyarakat dalam mengakses berbagai informasi dan layanan.",
     },
-  ]
+  ];
 
   useEffect(() => {
     if (isAutoPlay) {
       const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length)
-      }, 5000)
-      return () => clearInterval(interval)
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }, 5000);
+      return () => clearInterval(interval);
     }
-  }, [isAutoPlay, slides.length])
+  }, [isAutoPlay, slides.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
@@ -81,14 +81,21 @@ const HeroCarousel = () => {
           }`}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/75 to-green-700/45 z-10"></div>
-          <img src={slide.image || "/placeholder.svg"} alt={slide.title} className="w-full h-full object-cover" />
+          <img
+            src={slide.image || "/placeholder.svg"}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="container mx-auto px-6">
               <div className="max-w-3xl text-white">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{slide.title}</h1>
-                <p className="text-sm md:text-base mb-8 text-green-50 leading-relaxed">{slide.description}</p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                </div>
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                  {slide.title}
+                </h1>
+                <p className="text-sm md:text-base mb-8 text-green-50 leading-relaxed">
+                  {slide.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4"></div>
               </div>
             </div>
           </div>
@@ -140,24 +147,33 @@ const HeroCarousel = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 //==================================================================
 // KOMPONEN SERVICES SECTION
 // Layanan utama yang disesuaikan dengan tema pemakaman
 //==================================================================
-const ServiceCard = ({ icon, title, description, href, action, onNavigate }) => (
+const ServiceCard = ({
+  icon,
+  title,
+  description,
+  href,
+  action,
+  onNavigate,
+}) => (
   <div
     onClick={() => {
       if (action && onNavigate) {
-        onNavigate(action)
+        onNavigate(action);
       }
     }}
     className={`group bg-white p-4 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 ${action ? "cursor-pointer" : ""} flex flex-col justify-between h-full`}
   >
     <div>
-      <div className="text-green-700 mb-6 group-hover:scale-110 transition-transform duration-300">{icon}</div>
+      <div className="text-green-700 mb-6 group-hover:scale-110 transition-transform duration-300">
+        {icon}
+      </div>
       <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-green-700 transition-colors duration-300">
         {title}
       </h3>
@@ -168,58 +184,76 @@ const ServiceCard = ({ icon, title, description, href, action, onNavigate }) => 
       <ChevronRight className="w-4 h-4 ml-1" />
     </div>
   </div>
-)
+);
 
 const ServicesSection = ({ onNavigate }) => {
   const services = [
     {
       icon: <Search className="w-12 h-12" />,
       title: "Cek Data Makam",
-      description: "Cari informasi lokasi makam, nama jenazah, dan status lahan secara real-time melalui sistem digital kami.",
+      description:
+        "Cari informasi lokasi makam, nama jenazah, dan status lahan secara real-time melalui sistem digital kami.",
       action: "cemetery-search",
     },
     {
       icon: <CalendarCheck className="w-12 h-12" />,
       title: "Jadwal Penggunaan Taman",
-      description: "Lihat jadwal kegiatan, acara, atau pemanfaatan ruang terbuka hijau dan taman di wilayah DKI Jakarta..",
+      description:
+        "Lihat jadwal kegiatan, acara, atau pemanfaatan ruang terbuka hijau dan taman di wilayah DKI Jakarta..",
       action: "park-schedule",
     },
     {
       icon: <Trees className="w-12 h-12" />,
       title: "Permohonan Pemangkasan Pohon",
-      description: "Ajukan permintaan pemangkasan pohon yang berisiko membahayakan atau mengganggu lingkungan sekitar.",
+      description:
+        "Ajukan permintaan pemangkasan pohon yang berisiko membahayakan atau mengganggu lingkungan sekitar.",
       action: "tree-application",
     },
     {
       icon: <MapPin className="w-12 h-12" />,
       title: "Peta TPU dan RTH",
-      description: "Jelajahi peta interaktif untuk menemukan lokasi Tempat Pemakaman Umum (TPU) dan Ruang Terbuka Hijau (RTH) di Jakarta.",
+      description:
+        "Jelajahi peta interaktif untuk menemukan lokasi Tempat Pemakaman Umum (TPU) dan Ruang Terbuka Hijau (RTH) di Jakarta.",
       action: "map",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-5">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Layanan Utama</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Layanan Utama
+          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-            Kami menyediakan berbagai layanan digital yang memudahkan masyarakat dalam mengakses informasi dan layanan
-            pemakaman di DKI Jakarta.
+            Kami menyediakan berbagai layanan digital yang memudahkan masyarakat
+            dalam mengakses informasi dan layanan pemakaman di DKI Jakarta.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-4">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} onNavigate={onNavigate} />
+            <ServiceCard
+              key={service.title}
+              {...service}
+              onNavigate={onNavigate}
+            />
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 // Berita dan Informasi
-const NewsCard = ({ imageUrl, date, title, excerpt, category }) => (
+const NewsCard = ({
+  id,
+  imageUrl,
+  date,
+  title,
+  excerpt,
+  category,
+  onNavigate,
+}) => (
   <article className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group">
     <div className="relative overflow-hidden">
       <img
@@ -228,7 +262,9 @@ const NewsCard = ({ imageUrl, date, title, excerpt, category }) => (
         className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
       />
       <div className="absolute top-4 left-4">
-        <span className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">{category}</span>
+        <span className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+          {category}
+        </span>
       </div>
     </div>
     <div className="p-3">
@@ -239,14 +275,19 @@ const NewsCard = ({ imageUrl, date, title, excerpt, category }) => (
       <h3 className="font-semibold text-base mb-3 text-gray-800 group-hover:text-green-700 transition-colors duration-300 line-clamp-2">
         {title}
       </h3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">{excerpt}</p>
-      <button className="text-green-700 hover:text-green-800 text-base font-semibold transition-colors duration-200 flex items-center group">
+      <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
+        {excerpt}
+      </p>
+      <button
+        onClick={() => onNavigate(`news-detail-${id}`)}
+        className="text-green-700 hover:text-green-800 text-base font-semibold transition-colors duration-200 flex items-center group"
+      >
         Baca Selengkapnya
         <ChevronRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
       </button>
     </div>
   </article>
-)
+);
 
 const NewsSection = () => {
   const newsItems = [
@@ -274,15 +315,18 @@ const NewsSection = () => {
         "Inisiatif baru untuk perawatan makam berkelanjutan dengan melibatkan partisipasi masyarakat dalam menjaga kebersihan dan keindahan area pemakaman.",
       category: "Program",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-5">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Berita dan Informasi</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Berita dan Informasi
+          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-3">
-            Ikuti perkembangan terbaru dari kegiatan Dinas Pertamanan dan Pemakaman DKI Jakarta.
+            Ikuti perkembangan terbaru dari kegiatan Dinas Pertamanan dan
+            Pemakaman DKI Jakarta.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-5">
@@ -298,25 +342,25 @@ const NewsSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 //==================================================================
 // KOMPONEN STATISTICS SECTION
 // Grafik pelayanan pemakaman dengan filter periode
 //==================================================================
 const StatisticsSection = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState("month")
-  const [selectedYear, setSelectedYear] = useState("2025")
+  const [selectedPeriod, setSelectedPeriod] = useState("month");
+  const [selectedYear, setSelectedYear] = useState("2025");
 
   const periods = [
     { value: "week", label: "Mingguan" },
     { value: "month", label: "Bulanan" },
     { value: "quarter", label: "Triwulan" },
     { value: "year", label: "Tahunan" },
-  ]
+  ];
 
-  const years = ["2023", "2024", "2025"]
+  const years = ["2023", "2024", "2025"];
 
   const stats = [
     {
@@ -347,7 +391,7 @@ const StatisticsSection = () => {
       change: "-15%",
       trend: "up",
     },
-  ]
+  ];
 
   // Tambahkan data dummy grafik di dalam StatisticsSection
   const chartData = [
@@ -360,9 +404,7 @@ const StatisticsSection = () => {
   ];
 
   const aggregateData = {
-    week: [
-      { name: "Mingguan", total: 370 },
-    ],
+    week: [{ name: "Mingguan", total: 370 }],
     month: [
       { name: "Jan", total: 195 },
       { name: "Feb", total: 225 },
@@ -386,9 +428,12 @@ const StatisticsSection = () => {
     <section className="py-20 bg-gradient-to-br from-green-50 to-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Statistik Pelayanan Pemakaman</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Statistik Pelayanan Pemakaman
+          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-            Data dan statistik pelayanan pemakaman untuk transparansi dan evaluasi kinerja layanan publik.
+            Data dan statistik pelayanan pemakaman untuk transparansi dan
+            evaluasi kinerja layanan publik.
           </p>
         </div>
 
@@ -440,11 +485,15 @@ const StatisticsSection = () => {
                     stat.trend === "up" ? "text-green-600" : "text-red-600"
                   }`}
                 >
-                  <TrendingUp className={`w-4 h-4 mr-1 ${stat.trend === "down" ? "rotate-180" : ""}`} />
+                  <TrendingUp
+                    className={`w-4 h-4 mr-1 ${stat.trend === "down" ? "rotate-180" : ""}`}
+                  />
                   {stat.change}
                 </div>
               </div>
-              <h3 className="text-gray-600 text-sm font-medium mb-2">{stat.title}</h3>
+              <h3 className="text-gray-600 text-sm font-medium mb-2">
+                {stat.title}
+              </h3>
               <p className="text-3xl font-bold text-gray-800">{stat.value}</p>
             </div>
           ))}
@@ -453,17 +502,22 @@ const StatisticsSection = () => {
         {/* Chart Placeholder */}
         <div className="bg-white rounded-xl shadow-lg p-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-6">
-            Grafik Total Layanan {selectedPeriod === "month"
+            Grafik Total Layanan{" "}
+            {selectedPeriod === "month"
               ? "Bulanan"
               : selectedPeriod === "week"
                 ? "Mingguan"
                 : selectedPeriod === "quarter"
                   ? "Triwulan"
-                  : "Tahunan"} {selectedYear}
+                  : "Tahunan"}{" "}
+            {selectedYear}
           </h3>
           <div className="h-96 w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={aggregateData[selectedPeriod]} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+              <BarChart
+                data={aggregateData[selectedPeriod]}
+                margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -476,8 +530,8 @@ const StatisticsSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 //==================================================================
 // KOMPONEN UTAMA LANDING PAGE
@@ -491,5 +545,5 @@ export default function LandingPage({ onNavigate }) {
       <NewsSection />
       <StatisticsSection />
     </main>
-  )
+  );
 }
