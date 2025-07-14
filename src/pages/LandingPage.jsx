@@ -289,9 +289,10 @@ const NewsCard = ({
   </article>
 );
 
-const NewsSection = () => {
+const NewsSection = ({ onNavigate }) => {
   const newsItems = [
     {
+      id: 1,
       imageUrl: "/images/tpu-taman-kusir.jpg",
       date: "8 Januari 2025",
       title: "Peningkatan Fasilitas Taman Pemakaman Tanah Kusir",
@@ -300,6 +301,7 @@ const NewsSection = () => {
       category: "Fasilitas",
     },
     {
+      id: 2,
       imageUrl: "/images/taman-langsat.jpg",
       date: "6 Januari 2025",
       title: "5 Taman di Jakarta yang Buka 24 Jam & Info Fasilitas",
@@ -308,6 +310,7 @@ const NewsSection = () => {
       category: "Fasilitas",
     },
     {
+      id: 3,
       imageUrl: "/images/pembersihan-tpu.jpg",
       date: "4 Januari 2025",
       title: "Program Perawatan Makam Berkelanjutan",
@@ -330,12 +333,15 @@ const NewsSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-5">
-          {newsItems.map((item, index) => (
-            <NewsCard key={index} {...item} />
+          {newsItems.map((item) => (
+            <NewsCard key={item.id} {...item} onNavigate={onNavigate} />
           ))}
         </div>
         <div className="text-center">
-          <button className="bg-green-700 text-white font-semibold text-base py-2 px-4 rounded-lg hover:bg-green-800 transition-all duration-200 inline-flex items-center transform hover:scale-105">
+          <button
+            onClick={() => onNavigate("news")}
+            className="bg-green-700 text-white font-semibold text-base py-2 px-4 rounded-lg hover:bg-green-800 transition-all duration-200 inline-flex items-center transform hover:scale-105"
+          >
             Lihat Semua Berita
             <ChevronRight className="w-4 h-4 ml-2" />
           </button>
