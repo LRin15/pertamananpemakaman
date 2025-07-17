@@ -16,7 +16,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "2018-2022",
       title: "DINAS PERTAMANAN DAN HUTAN KOTA",
       year: "2018",
-      pdf: "/files/dinas-iku-2018-2022.pdf",
+      pdf: "/dasarhukum/No.45 Lampiran Tahun 2022 IKU bappeda.pdf",
     },
     {
       id: 2,
