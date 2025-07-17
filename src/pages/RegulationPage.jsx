@@ -1058,9 +1058,15 @@ const RegulationPage = ({ onNavigate }) => {
                 return (
                   <div key={category.id} className="text-center">
                     <div
-                      className={`w-16 h-16 ${colors.bg} rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-2`}
+                      className={`w-16 h-16 ${colors.bg} rounded-full flex items-center justify-center text-white mx-auto mb-2`}
                     >
-                      {category.icon}
+                      <svg
+                        className="w-8 h-8"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                      </svg>
                     </div>
                     <div className="text-2xl font-bold text-gray-900">
                       {category.count}
