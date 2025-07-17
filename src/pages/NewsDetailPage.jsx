@@ -29,7 +29,7 @@ const NewsDetailPage = ({ onNavigate, newsId }) => {
         <p>"Kami berkomitmen untuk menjadikan Jakarta sebagai kota yang lebih hijau dan nyaman untuk ditinggali. Program ini adalah salah satu langkah konkret dalam mewujudkan visi tersebut," ungkap Dr. Bambang Sutrisno.</p>
             `,
       fullImage:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJsStQ7Vuiz7KFomVc3_afFd0kXFLHD6SMQ2mSm0tasRTUg1kcynCOQdyoPzJXPUFbYvtxVRIkC_ovopzBJH0mizSQMFG5reIWirma2-hRzA",
+        "https://i.pinimg.com/1200x/f8/1c/83/f81c839d8e5f53dee398b2cfdb136c47.jpg",
       author: "Tim Redaksi",
       authorImage: "/images/logo.png",
       authorBio:
@@ -101,7 +101,7 @@ const NewsDetailPage = ({ onNavigate, newsId }) => {
 
         <p>"Kami berkomitmen untuk memberikan pelayanan terbaik bagi masyarakat Jakarta. Sistem digital ini adalah wujud nyata transformasi digital dalam pelayanan publik," ungkap Ahmad Rizki.</p>
             `,
-      fullImage: "/images/pemakamandigita;.jpeg",
+      fullImage: "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
       author: "Ahmad Rizki",
       authorImage: "/images/logo.png",
       authorBio:
