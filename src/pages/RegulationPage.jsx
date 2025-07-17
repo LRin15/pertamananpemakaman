@@ -886,7 +886,15 @@ const RegulationPage = ({ onNavigate }) => {
                     : "border-gray-200 bg-white hover:shadow-md hover:scale-102"
                 }`}
               >
-                <div className="text-2xl mb-2">{category.icon}</div>
+                <div className="text-2xl mb-2">
+                  <svg
+                    className="w-8 h-8 mx-auto text-gray-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                  </svg>
+                </div>
                 <div
                   className={`text-sm font-semibold ${isSelected ? colors.text : "text-gray-700"}`}
                 >
