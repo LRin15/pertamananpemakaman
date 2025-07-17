@@ -210,98 +210,62 @@ const ParkSchedulePage = ({ onNavigate }) => {
     "16:00",
     "17:00",
   ];
-  const weekDays = ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"];
-  const weekDates = [21, 22, 23, 24, 25, 26, 27];
 
-  const monthDays = [
-    [31, 1, 2, 3, 4, 5, 6],
-    [7, 8, 9, 10, 11, 12, 13],
-    [14, 15, 16, 17, 18, 19, 20],
-    [21, 22, 23, 24, 25, 26, 27],
-    [28, 1, 2, 3, 4, 5, 6],
-    [7, 8, 9, 10, 11, 12, 13],
-  ];
+  const getDayName = (date) =>
+    ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"][
+      date.getDay()
+    ];
+  const getMonthName = (date) =>
+    [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
+    ][date.getMonth()];
+  const mapJsDayToEventDay = (jsDay) => (jsDay === 0 ? 7 : jsDay);
 
-  const sidebarEvents = [
-    {
-      date: "2/22/2025",
-      temp: "55°/40°",
-      events: [
-        {
-          time: "08:00 - 09:00",
-          title: "Senam Terapi (Ling Tien Kung)",
-          color: "#22c55e",
-        },
-        { time: "10:00 - 11:00", title: "Latihan Tari", color: "#22c55e" },
-      ],
-    },
-    {
-      date: "2/23/2021",
-      temp: "55°/40°",
-      events: [
-        { time: "09:00 - 10:00", title: "Senam Landsdance", color: "#22c55e" },
-        { time: "12:00 - 13:00", title: "Paskibraka", color: "#22c55e" },
-      ],
-    },
-    {
-      date: "2/24/2021",
-      temp: "55°/40°",
-      events: [
-        {
-          time: "8:30 - 9:00",
-          title: "City Sales Pitch",
-          color: "#22c55e",
-          link: "https://zoom.us/j/1983475281",
-        },
-        {
-          time: "8:30 - 9:00",
-          title: "City Sales Pitch",
-          color: "#22c55e",
-          link: "https://zoom.us/j/1983475281",
-        },
-      ],
-    },
-    {
-      date: "3/2/2021",
-      temp: "55°/40°",
-      events: [
-        {
-          time: "8:30 - 9:00",
-          title: "Visit to discuss improvements",
-          color: "#22c55e",
-        },
-      ],
-    },
-    { date: "3/3/2021", temp: "55°/40°", events: [] },
-  ];
-
-  // Get events that start at a specific time and day
   const getEventsStartingAtTimeAndDay = (timeIndex, dayIndex) => {
+    const targetEventDay = mapJsDayToEventDay(dayIndex);
     return events.filter((event) => {
       const eventHour = Number.parseInt(event.time.split(":")[0]);
       const slotHour = Number.parseInt(timeSlots[timeIndex].split(":")[0]);
-      return event.day === dayIndex + 1 && eventHour === slotHour;
+      return event.day === targetEventDay && eventHour === slotHour;
     });
   };
 
-  // Calculate the position and height for events based on time slots
   const getEventPosition = (event, timeIndex) => {
     const eventStartHour = Number.parseInt(event.time.split(":")[0]);
     const slotHour = Number.parseInt(timeSlots[timeIndex].split(":")[0]);
-
     if (eventStartHour === slotHour) {
-      // This is the starting time slot for the event
-      return {
-        height: `${event.duration * 60}px`, // 60px per hour
-        zIndex: 10,
-      };
+      return { height: `${event.duration * 60}px`, zIndex: 10 };
     }
     return null;
+  };
+
+  const navigateDay = (direction) => {
+    const newDate = new Date(currentDate);
+    newDate.setDate(currentDate.getDate() + direction);
+    setCurrentDate(newDate);
   };
 
   const navigateWeek = (direction) => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + direction * 7);
+    setCurrentDate(newDate);
+  };
+
+  const navigateMonth = (direction) => {
+    const newDate = new Date(currentDate);
+    newDate.setDate(1);
+    newDate.setMonth(currentDate.getMonth() + direction);
     setCurrentDate(newDate);
   };
 
@@ -315,13 +279,21 @@ const ParkSchedulePage = ({ onNavigate }) => {
     setSelectedEvent(null);
   };
 
-  // Event Detail Modal Component
   const EventDetailModal = () => {
     if (!selectedEvent) return null;
+    const eventDayName = [
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu",
+      "Minggu",
+    ][selectedEvent.day - 1];
+
     return (
       <div className="fixed inset-0 backdrop-blur-sm bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-lg shadow-xl max-w-sm w-full">
-          {/* Modal Header */}
           <div className="bg-[#2e7d32] text-white p-3 rounded-t-lg">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold">Detail Acara</h2>
@@ -345,9 +317,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
               </button>
             </div>
           </div>
-          {/* Modal Content */}
           <div className="p-4 space-y-3">
-            {/* Event Title */}
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {selectedEvent.title}
@@ -362,7 +332,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 {selectedEvent.status}
               </div>
             </div>
-            {/* Schedule */}
             <div>
               <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
                 <svg
@@ -381,14 +350,13 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 Jadwal Acara
               </h4>
               <div className="text-sm text-gray-600 space-y-1">
-                <p>Tanggal: {weekDates[selectedEvent.day - 1]} Februari 2025</p>
+                <p>Hari: {eventDayName}</p>
                 <p>
-                  Waktu: {selectedEvent.time} - {selectedEvent.endTime} WIB
+                  Waktu: {selectedEvent.time} - {selectedEvent.endTime} WIB (
+                  {selectedEvent.duration} jam)
                 </p>
-                <p>Durasi: {selectedEvent.duration} jam</p>
               </div>
             </div>
-            {/* Organizer */}
             <div>
               <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
                 <svg
@@ -411,7 +379,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 <p>Kontak: {selectedEvent.contact}</p>
               </div>
             </div>
-            {/* Description */}
             <div>
               <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
                 <svg
@@ -433,7 +400,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 {selectedEvent.description}
               </p>
             </div>
-            {/* Participants */}
             <div>
               <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
                 <svg
@@ -461,114 +427,68 @@ const ParkSchedulePage = ({ onNavigate }) => {
     );
   };
 
-  // Get events for the current selected day
   const getCurrentDayEvents = () => {
-    const currentDayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
-    const adjustedDay = currentDayOfWeek === 0 ? 7 : currentDayOfWeek; // Convert Sunday to 7
+    const currentDayOfWeek = currentDate.getDay();
+    const adjustedDay = mapJsDayToEventDay(currentDayOfWeek);
     return events.filter((event) => event.day === adjustedDay);
   };
 
-  // Navigate to previous/next day
-  const navigateDay = (direction) => {
-    const newDate = new Date(currentDate);
-    newDate.setDate(currentDate.getDate() + direction);
-    setCurrentDate(newDate);
-  };
-
-  // Get day name in Indonesian
-  const getDayName = (date) => {
-    const days = [
-      "Minggu",
-      "Senin",
-      "Selasa",
-      "Rabu",
-      "Kamis",
-      "Jumat",
-      "Sabtu",
-    ];
-    return days[date.getDay()];
-  };
-
-  // Get month name in Indonesian
-  const getMonthName = (date) => {
-    const months = [
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
-      "September",
-      "Oktober",
-      "November",
-      "Desember",
-    ];
-    return months[date.getMonth()];
-  };
-
-  // Render Daily View - Simplified
   const renderDailyView = () => {
     const dayEvents = getCurrentDayEvents();
     const dayName = getDayName(currentDate);
     const monthName = getMonthName(currentDate);
-    const dayNames = ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"];
-    const currentDayName = dayNames[currentDate.getDay()];
+    const currentDayName = ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"][
+      currentDate.getDay()
+    ];
 
     return (
-      <div className="flex-1 overflow-auto">
-        <div className="min-w-full">
-          {/* Daily Header - Simple */}
-          <div className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
-            <div className="flex items-center justify-center gap-4">
-              <button
-                onClick={() => navigateDay(-1)}
-                className="p-2 hover:bg-gray-100 rounded-lg"
+      <div className="flex-1 flex flex-col overflow-auto">
+        <div className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => navigateDay(-1)}
+              className="p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <div className="text-center">
-                <h2 className="text-xl font-bold text-gray-800">
-                  {dayName}, {currentDate.getDate()} {monthName}{" "}
-                  {currentDate.getFullYear()}
-                </h2>
-              </div>
-              <button
-                onClick={() => navigateDay(1)}
-                className="p-2 hover:bg-gray-100 rounded-lg"
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <h2 className="text-xl font-bold text-gray-800">
+              {dayName}, {currentDate.getDate()} {monthName}{" "}
+              {currentDate.getFullYear()}
+            </h2>
+            <button
+              onClick={() => navigateDay(1)}
+              className="p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
-
-          {/* Simple Daily Grid */}
-          <div className="grid grid-cols-6 border-b border-gray-200 bg-white sticky top-16 z-10">
+        </div>
+        <div className="flex-1 overflow-auto">
+          <div className="grid grid-cols-6 border-b border-gray-200 bg-white sticky top-0 z-10">
             <div className="p-3"></div>
             <div className="col-span-5 p-3 text-center border-l border-gray-200">
               <div className="text-sm text-gray-600 mb-1">{currentDayName}</div>
@@ -577,16 +497,13 @@ const ParkSchedulePage = ({ onNavigate }) => {
               </div>
             </div>
           </div>
-
-          {/* Time Grid for Daily View - Simple */}
           <div className="relative">
-            {timeSlots.map((time, timeIndex) => {
-              const timeEvents = dayEvents.filter((event) => {
-                const eventHour = Number.parseInt(event.time.split(":")[0]);
-                const slotHour = Number.parseInt(time.split(":")[0]);
-                return eventHour === slotHour;
-              });
-
+            {timeSlots.map((time) => {
+              const timeEvents = dayEvents.filter(
+                (event) =>
+                  Number.parseInt(event.time.split(":")[0]) ===
+                  Number.parseInt(time.split(":")[0])
+              );
               return (
                 <div
                   key={time}
@@ -635,15 +552,271 @@ const ParkSchedulePage = ({ onNavigate }) => {
     );
   };
 
-  const days = ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"];
-  const dates = [21, 22, 23, 24, 25, 26, 27];
+  const renderMonthlyView = () => {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const monthName = getMonthName(currentDate);
+    const firstDayOfMonth = new Date(year, month, 1);
+    const lastDayOfMonth = new Date(year, month + 1, 0);
+    const firstDayOfWeek = firstDayOfMonth.getDay();
+    const daysInMonth = lastDayOfMonth.getDate();
+    const calendarDays = [];
+    const lastDayOfPrevMonth = new Date(year, month, 0).getDate();
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      calendarDays.push({
+        day: lastDayOfPrevMonth - firstDayOfWeek + 1 + i,
+        isCurrentMonth: false,
+        events: [],
+      });
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const dayOfWeek = date.getDay();
+      const eventDay = mapJsDayToEventDay(dayOfWeek);
+      const dayEvents = events.filter((event) => event.day === eventDay);
+      calendarDays.push({ day, isCurrentMonth: true, date, events: dayEvents });
+    }
+    const remainingCells = 7 - (calendarDays.length % 7);
+    if (remainingCells < 7) {
+      for (let i = 1; i <= remainingCells; i++) {
+        calendarDays.push({ day: i, isCurrentMonth: false, events: [] });
+      }
+    }
+
+    return (
+      <div className="flex-1 flex flex-col overflow-auto bg-white">
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
+          <button
+            onClick={() => navigateMonth(-1)}
+            className="p-2 hover:bg-gray-100 rounded-lg"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <h2 className="text-xl font-bold text-gray-800">
+            {monthName} {year}
+          </h2>
+          <button
+            onClick={() => navigateMonth(1)}
+            className="p-2 hover:bg-gray-100 rounded-lg"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="grid grid-cols-7 sticky top-[77px] bg-white z-10">
+          {["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"].map((day) => (
+            <div
+              key={day}
+              className="text-center font-semibold text-gray-600 p-2 border-b border-r border-gray-200"
+            >
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-7 flex-1">
+          {calendarDays.map((dayInfo, index) => (
+            <div
+              key={index}
+              className={`border-t border-r border-gray-200 p-2 min-h-[120px] flex flex-col ${
+                dayInfo.isCurrentMonth ? "bg-white" : "bg-gray-50 text-gray-400"
+              }`}
+            >
+              <div className="font-medium text-sm mb-1">{dayInfo.day}</div>
+              <div className="space-y-1 overflow-y-auto">
+                {dayInfo.events.map((event) => (
+                  <div
+                    key={event.id}
+                    onClick={() =>
+                      handleEventClick({ ...event, date: dayInfo.date })
+                    }
+                    className="p-1 rounded-md text-xs cursor-pointer truncate"
+                    style={{
+                      backgroundColor:
+                        event.color === "#0ea5e9" ? "#dbeafe" : "#dcfce7",
+                      color: event.color === "#0ea5e9" ? "#1e40af" : "#166534",
+                      borderLeft: `3px solid ${event.color}`,
+                    }}
+                  >
+                    {event.title}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const renderWeeklyView = () => {
+    const startOfWeek = new Date(currentDate);
+    startOfWeek.setDate(currentDate.getDate() - currentDate.getDay());
+    const endOfWeek = new Date(startOfWeek);
+    endOfWeek.setDate(startOfWeek.getDate() + 6);
+
+    const weekDates = Array.from({ length: 7 }).map((_, i) => {
+      const date = new Date(startOfWeek);
+      date.setDate(startOfWeek.getDate() + i);
+      return date;
+    });
+
+    const weekRangeString = () => {
+      const startMonth = getMonthName(startOfWeek);
+      const endMonth = getMonthName(endOfWeek);
+      if (startMonth === endMonth) {
+        return `${startOfWeek.getDate()} - ${endOfWeek.getDate()} ${startMonth} ${startOfWeek.getFullYear()}`;
+      }
+      return `${startOfWeek.getDate()} ${startMonth} - ${endOfWeek.getDate()} ${endMonth} ${endOfWeek.getFullYear()}`;
+    };
+
+    return (
+      <div className="flex-1 flex flex-col overflow-auto">
+        <div className="bg-white border-b border-gray-200 p-4 sticky top-0 z-20">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => navigateWeek(-1)}
+              className="p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <h2 className="text-xl font-bold text-gray-800">
+              {weekRangeString()}
+            </h2>
+            <button
+              onClick={() => navigateWeek(1)}
+              className="p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="flex-1 overflow-auto">
+          <div className="grid grid-cols-8 border-b border-gray-200 bg-white sticky top-0 z-10">
+            <div className="p-3"></div>
+            {weekDates.map((date) => (
+              <div
+                key={date.toISOString()}
+                className="p-3 text-center border-l border-gray-200"
+              >
+                <div className="text-xs text-gray-600 mb-1">
+                  {
+                    ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"][
+                      date.getDay()
+                    ]
+                  }
+                </div>
+                <div className="text-xl font-semibold">{date.getDate()}</div>
+              </div>
+            ))}
+          </div>
+          <div className="relative">
+            {timeSlots.map((time, timeIndex) => (
+              <div
+                key={time}
+                className="grid grid-cols-8 border-b border-gray-100 min-h-[60px]"
+              >
+                <div className="p-3 text-sm text-gray-500 border-r border-gray-200 bg-white text-right">
+                  {time}
+                </div>
+                {weekDates.map((date, dayIndex) => (
+                  <div
+                    key={date.toISOString()}
+                    className="border-l border-gray-200 relative hover:bg-gray-50 transition-colors"
+                  >
+                    {getEventsStartingAtTimeAndDay(timeIndex, dayIndex).map(
+                      (event, eventIndex) => {
+                        const position = getEventPosition(event, timeIndex);
+                        if (!position) return null;
+                        return (
+                          <div
+                            key={eventIndex}
+                            className="absolute left-0 right-0 top-0 p-2 text-xs font-medium cursor-pointer hover:shadow-lg transition-shadow border-l-4 mb-1"
+                            style={{
+                              backgroundColor:
+                                event.color === "#0ea5e9"
+                                  ? "#dbeafe"
+                                  : event.color === "#22c55e"
+                                  ? "#dcfce7"
+                                  : "#dbeafe",
+                              borderLeftColor: event.color,
+                              color:
+                                event.color === "#0ea5e9"
+                                  ? "#1e40af"
+                                  : event.color === "#22c55e"
+                                  ? "#166534"
+                                  : "#1e40af",
+                              height: `${event.duration * 60 - 4}px`,
+                              zIndex: position.zIndex,
+                            }}
+                            onClick={() => handleEventClick(event)}
+                          >
+                            <div className="font-semibold">{event.time}</div>
+                            <div className="leading-tight">{event.title}</div>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
-      {/* Main Calendar Content */}
-      <div className="flex flex-1">
-        {/* Left Sidebar */}
-        <div className="w-72 bg-[#2e7d32] text-white p-3 overflow-y-auto">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="flex flex-1 overflow-hidden">
+        <div className="w-72 bg-[#2e7d32] text-white p-3 flex flex-col overflow-y-auto">
           <div className="mb-4">
             <h1 className="text-xl font-bold mb-4 text-center text-yellow-400">
               {selectedPark}
@@ -689,8 +862,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 </button>
               </div>
             </div>
-
-            {/* Mini Calendar */}
             <div className="mb-6">
               <div className="grid grid-cols-7 gap-1 text-xs mb-2">
                 {["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"].map(
@@ -716,9 +887,8 @@ const ParkSchedulePage = ({ onNavigate }) => {
                       className={`text-center p-1 rounded ${
                         day === 22
                           ? "bg-blue-500 text-white"
-                          : weekIndex === 0 && dayIndex === 0
-                          ? "text-gray-400"
-                          : weekIndex >= 4 && day <= 13
+                          : (weekIndex === 0 && day > 7) ||
+                            (weekIndex >= 4 && day <= 13)
                           ? "text-gray-400"
                           : ""
                       }`}
@@ -730,13 +900,9 @@ const ParkSchedulePage = ({ onNavigate }) => {
               </div>
             </div>
           </div>
-
-          {/* Events List */}
           <div className="space-y-4">
-            {/* HARI INI */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                {/* 2. Teks hari/tanggal diubah menjadi putih */}
                 <div className="text-sm font-medium text-white">
                   HARI INI 2/22/2025
                 </div>
@@ -759,7 +925,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 <div className="flex items-start gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-400 mt-1.5 flex-shrink-0"></div>
                   <div className="text-sm">
-                    {/* 1. Teks jam diubah menjadi kuning */}
                     <div className="font-medium text-yellow-400">
                       08:00 - 10:00
                     </div>
@@ -779,8 +944,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 </div>
               </div>
             </div>
-
-            {/* BESOK */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <div className="text-sm font-medium text-white">
@@ -822,88 +985,20 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 </div>
               </div>
             </div>
-
-            {/* RABU */}
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <div className="text-sm font-medium text-white">
-                  RABU 2/24/2025
-                </div>
-                <div className="flex items-center gap-1 text-xs text-white">
-                  55°/40°
-                  <svg
-                    className="w-4 h-4 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-start gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400 mt-1.5 flex-shrink-0"></div>
-                  <div className="text-sm">
-                    <div className="font-medium text-yellow-400">
-                      14:00 - 17:00
-                    </div>
-                    <div className="text-white">FOTO WISUDA</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="flex-1 flex flex-col">
-          {/* Top Navigation */}
           <div className="bg-white border-b border-gray-200 p-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <button
-                  onClick={() => navigateWeek(-1)}
-                  className="p-1 hover:bg-gray-100 rounded"
+                  onClick={() => setCurrentDate(new Date())}
+                  className="border px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
+                  Hari Ini
                 </button>
-                <span className="text-sm">Hari ini</span>
-                <button
-                  onClick={() => navigateWeek(1)}
-                  className="p-1 hover:bg-gray-100 rounded"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-
-                <div className="flex gap-2 ml-8">
+                <div className="flex gap-2">
                   <button
                     onClick={() => setViewMode("Harian")}
                     className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
@@ -934,19 +1029,8 @@ const ParkSchedulePage = ({ onNavigate }) => {
                   >
                     Bulanan
                   </button>
-                  <button
-                    onClick={() => setViewMode("Tahunan")}
-                    className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
-                      viewMode === "Tahunan"
-                        ? "bg-[#fdd835] text-black"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`}
-                  >
-                    Tahunan
-                  </button>
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <svg
@@ -993,94 +1077,11 @@ const ParkSchedulePage = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Calendar Grid */}
-          {viewMode === "Harian" ? (
-            renderDailyView()
-          ) : (
-            <div className="flex-1 overflow-auto">
-              <div className="min-w-full">
-                {/* Week Header */}
-                <div className="grid grid-cols-8 border-b border-gray-200 bg-white sticky top-0 z-10">
-                  <div className="p-3"></div>
-                  {days.map((day, index) => (
-                    <div
-                      key={day}
-                      className="p-3 text-center border-l border-gray-200"
-                    >
-                      <div className="text-xs text-gray-600 mb-1">{day}</div>
-                      <div className="text-xl font-semibold">
-                        {dates[index]}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Time Grid */}
-                <div className="relative">
-                  {timeSlots.map((time, timeIndex) => (
-                    <div
-                      key={time}
-                      className="grid grid-cols-8 border-b border-gray-100 min-h-[60px]"
-                    >
-                      <div className="p-3 text-sm text-gray-500 border-r border-gray-200 bg-white text-right">
-                        {time}
-                      </div>
-                      {dates.map((date, dayIndex) => (
-                        <div
-                          key={`${time}-${dayIndex}`}
-                          className="border-l border-gray-200 relative hover:bg-gray-50 transition-colors"
-                        >
-                          {getEventsStartingAtTimeAndDay(
-                            timeIndex,
-                            dayIndex
-                          ).map((event, eventIndex) => {
-                            const position = getEventPosition(event, timeIndex);
-                            if (!position) return null;
-
-                            return (
-                              <div
-                                key={eventIndex}
-                                className="absolute left-0 right-0 top-0 p-2 text-xs font-medium cursor-pointer hover:shadow-lg transition-shadow border-l-4 mb-1"
-                                style={{
-                                  backgroundColor:
-                                    event.color === "#0ea5e9"
-                                      ? "#dbeafe"
-                                      : event.color === "#22c55e"
-                                      ? "#dcfce7"
-                                      : "#dbeafe",
-                                  borderLeftColor: event.color,
-                                  color:
-                                    event.color === "#0ea5e9"
-                                      ? "#1e40af"
-                                      : event.color === "#22c55e"
-                                      ? "#166534"
-                                      : "#1e40af",
-                                  height: `${event.duration * 60 - 4}px`,
-                                  zIndex: position.zIndex,
-                                }}
-                                onClick={() => handleEventClick(event)}
-                              >
-                                <div className="font-semibold">
-                                  {event.time}
-                                </div>
-                                <div className="leading-tight">
-                                  {event.title}
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+          {viewMode === "Harian" && renderDailyView()}
+          {viewMode === "Mingguan" && renderWeeklyView()}
+          {viewMode === "Bulanan" && renderMonthlyView()}
         </div>
       </div>
-
-      {/* Event Detail Modal */}
       {isModalOpen && <EventDetailModal />}
     </div>
   );
