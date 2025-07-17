@@ -316,7 +316,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "TAHUN 2022",
       title: "TENTANG RUANG TERBUKA HIJAU",
       year: "2022",
-      pdf: "/files/pergub-09-2022.pdf",
+      pdf: "/dasarhukum/PERGUB_NO._9_TAHUN_2022.pdf",
     },
     {
       id: 34,
