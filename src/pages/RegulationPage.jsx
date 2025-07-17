@@ -534,7 +534,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "TAHUN 2012",
       title: "TENTANG PENGADAAN TANAH BAGI PEMBANGUNAN UNTUK KEPENTINGAN UMUM",
       year: "2012",
-      pdf: "/files/uu-02-2012.pdf",
+      pdf: "/dasarhukum/UU Nomor 2 Tahun 2012.pdf",
     },
     {
       id: 56,
