@@ -947,6 +947,11 @@ const RegulationPage = ({ onNavigate }) => {
                             <span className="text-sm text-gray-500">
                               {regulation.year}
                             </span>
+                            {regulation.pdf.startsWith("/dasarhukum/") && (
+                              <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                                PDF Tersedia
+                              </span>
+                            )}
                           </div>
                           <h3 className="text-lg font-bold text-gray-900">
                             {regulation.category} {regulation.type}{" "}
