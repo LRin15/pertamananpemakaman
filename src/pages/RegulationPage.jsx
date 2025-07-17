@@ -673,6 +673,16 @@ const RegulationPage = ({ onNavigate }) => {
 
   // Fungsi untuk preview/download file
   const handleFileAction = (filePath, action) => {
+    // Cek apakah file tersedia (yang dimulai dengan /dasarhukum/)
+    const isFileAvailable = filePath.startsWith("/dasarhukum/");
+
+    if (!isFileAvailable) {
+      alert(
+        "File PDF ini belum tersedia. Silakan hubungi admin untuk mendapatkan dokumen ini.",
+      );
+      return;
+    }
+
     if (action === "preview") {
       // Buka file PDF di tab baru untuk preview
       window.open(filePath, "_blank");
