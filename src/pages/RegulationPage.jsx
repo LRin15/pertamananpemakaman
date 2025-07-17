@@ -260,7 +260,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "TAHUN 2015",
       title: "TENTANG RETRIBUSI DAERAH",
       year: "2015",
-      pdf: "/files/perda-01-2015.pdf",
+      pdf: "/dasarhukum/PERDA NO 1 TAHUN 2015.pdf",
     },
     {
       id: 28,
