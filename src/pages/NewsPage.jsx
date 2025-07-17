@@ -15,7 +15,7 @@ const NewsPage = ({ onNavigate }) => {
         "Dinas Pertamanan dan Hutan Kota DKI Jakarta memulai program massal penanaman pohon untuk meningkatkan kualitas udara di ibu kota.",
       content:
         "Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta resmi memulai program penanaman 10.000 pohon di wilayah Jakarta Selatan. Program ini merupakan bagian dari upaya pemerintah provinsi untuk meningkatkan tutupan hijau dan kualitas udara di ibu kota. Pohon yang ditanam meliputi berbagai jenis seperti mahoni, trembesi, dan angsana yang telah terbukti efektif dalam menyerap polutan udara.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJsStQ7Vuiz7KFomVc3_afFd0kXFLHD6SMQ2mSm0tasRTUg1kcynCOQdyoPzJXPUFbYvtxVRIkC_ovopzBJH0mizSQMFG5reIWirma2-hRzA",
+      image: "https://i.pinimg.com/1200x/f8/1c/83/f81c839d8e5f53dee398b2cfdb136c47.jpg",
       author: "Tim Redaksi",
       date: "2024-12-20",
       category: "program",
@@ -44,7 +44,7 @@ const NewsPage = ({ onNavigate }) => {
         "Sistem perizinan pemakaman digital akan segera diimplementasikan untuk mempermudah masyarakat dalam mengurus administrasi pemakaman.",
       content:
         "Jakarta - Mulai Januari 2025, Dinas Pertamanan dan Hutan Kota DKI Jakarta akan menerapkan sistem perizinan pemakaman digital. Sistem ini memungkinkan masyarakat untuk mengurus izin pemakaman secara online tanpa perlu datang langsung ke kantor dinas. Fitur-fitur yang tersedia meliputi pengajuan izin, pembayaran retribusi, dan tracking status permohonan secara real-time.",
-      image: "/images/pemakamandigita;.jpeg",
+      image: "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
       author: "Ahmad Rizki",
       date: "2024-12-15",
       category: "kebijakan",
@@ -347,19 +347,17 @@ const NewsPage = ({ onNavigate }) => {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category.id
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === category.id
                     ? "bg-green-600 text-white shadow-lg"
                     : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600 border border-gray-200"
-                }`}
+                  }`}
               >
                 {category.name}
                 <span
-                  className={`ml-2 px-2 py-1 rounded-full text-xs ${
-                    selectedCategory === category.id
+                  className={`ml-2 px-2 py-1 rounded-full text-xs ${selectedCategory === category.id
                       ? "bg-green-500 text-white"
                       : "bg-gray-100 text-gray-500"
-                  }`}
+                    }`}
                 >
                   {category.count}
                 </span>
@@ -465,11 +463,10 @@ const NewsPage = ({ onNavigate }) => {
                   <button
                     key={index + 1}
                     onClick={() => setCurrentPage(index + 1)}
-                    className={`px-3 py-2 text-sm rounded-md ${
-                      currentPage === index + 1
+                    className={`px-3 py-2 text-sm rounded-md ${currentPage === index + 1
                         ? "bg-green-600 text-white"
                         : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                    }`}
+                      }`}
                   >
                     {index + 1}
                   </button>
