@@ -492,7 +492,7 @@ const RegulationPage = ({ onNavigate }) => {
       title:
         "TENTANG PENYEDIAAN DAN PENGGUNAAN TANAH UNTUK KEPERLUAN TEMPAT PEMAKAMAN",
       year: "1987",
-      pdf: "/files/pp-09-1987.pdf",
+      pdf: "/dasarhukum/PP NO 9 TH 1987 (1).pdf",
     },
     {
       id: 52,
