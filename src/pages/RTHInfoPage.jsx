@@ -40,6 +40,62 @@ const RTHInfoPage = ({ onNavigate }) => {
         },
       ],
     },
+    b: {
+      title: "Tipologi B - RTH Khusus",
+      description:
+        "Ruang Terbuka Hijau dengan fungsi khusus untuk konservasi, produksi, dan pelestarian budaya",
+      types: [
+        {
+          name: "Cagar Budaya",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_B/06.%20cagar%20budaya.png",
+          description:
+            "Kawasan/zona Cagar Budaya memiliki kriteria : mengandung situs cagar budaya terletak di daratan dan/atau di lautan; berupa lanskap budaya hasil bentukan manusia dengan kriteria sesuai peraturan perundang-undangan; memperlihatkan pengaruh manusia masa lalu pada proses pemanfaatan ruang berskala luas dan bukti pembentukan lanskap budaya; memiliki lapisan tanah terbenam yang mengandung bukti kegiatan manusia atau endapan fosil; dan/atau memiliki nilai penting bagi sejarah, ilmu pengetahuan dan budaya yang perlu dilindungi bagi tujuan pelestarian dan pemanfaatan guna memajukan kebudayaan nasional.",
+        },
+        {
+          name: "Hutan Produksi",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_B/08.%20hutan%20produksi.png",
+          description:
+            "Kawasan/Zona Hutan Produksi memiliki kriteria : kawasan/zona hutan yang memproduksi hasil hutan; memiliki keragaman vegetasi tinggi; dilakukan dengan pendekatan agroforestri; dan/atau hutan di luar kawasan/zona lindung, kawasan/zona hutan suaka alam, kawasan/zona hutan pelestarian alam dan taman buru.",
+        },
+        {
+          name: "Konservasi",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_B/03.%20konservasi.png",
+          description:
+            "Kawasan/Zona Konservasi memiliki kriteria : memiliki daya tarik sumber daya alam hayati, formasi geologi, dan/atau gejala alam yang dapat dikembangkan untuk kepentingan pemanfaatan pengembangan ilmu pengetahuan, penelitian, pendidikan, dan peningkatan kesadaran konservasi sumber daya alam hayati; memiliki ekosistem khas dan merupakan habitat alami yang memberikan perlindungan bagi perkembangan keanekaragaman tumbuhan dan satwa; kondisi alam, baik biota maupun fisiknya masih asli dan tidak atau belum diganggu manusia; dan/atau memiliki kesatuan masyarakat hukum adat dan/atau kearifan lokal, hak tradisional dan lembaga adat yang masih berlaku.",
+        },
+      ],
+    },
+    c: {
+      title: "Tipologi C - RTH Privat",
+      description:
+        "Ruang Terbuka Hijau yang dikelola oleh pihak swasta atau individu untuk mendukung sistem RTH kota",
+      types: [
+        {
+          name: "Objek Ruang pada Bangunan",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_C/OR%20Bangunan/objek%20ruang%20pada%20bangunan.png",
+          description:
+            "Objek Ruang pada Bangunan paling sedikit memiliki kriteria : berupa permukaan bangunan yang ditanami vegetasi; memiliki luasan sesuai perhitungan IHBI, sebagai upaya memenuhi ketentuan KDH yang ditetapkan dalam RTR; menggunakan instalasi, sistem utilitas, dan/atau media khusus sesuai kriteria teknis bangunan; dan/atau menanam vegetasi lokal yang memenuhi kriteria teknis lanskap RTH pada bangunan yang berfungsi sebagai peneduh, peredam suara, penyaring bau, penyaring debu, dan/atau pertanian perkotaan.",
+        },
+        {
+          name: "Objek Ruang pada Kavling",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_C/OR%20Kavling/01.%20Perkarangan%20rumah.png",
+          description:
+            "Objek Ruang pada Kavling paling sedikit memiliki kriteria : berupa penutup lahan/perkerasan berpori yang dapat menangkap dan/atau meresapkan air; memiliki luasan sesuai dengan KDH yang ditetapkan dalam ketentuan umum zonasi/peraturan zonasi dalam RTR; menyediakan daerah tangkapan air berupa kolam, bidang, sumur, embung, atau situ sesuai dengan peraturan perundang-undangan; menyediakan sistem pemanenan air hujan sebagai sumber air alternatif yang memenuhi kriteria teknis pemeliharaan lanskap RTH pada kaveling sesuai dengan peraturan perundang-undangan; dan/atau ditanami vegetasi lokal dengan stratifikasi lengkap yang memenuhi kriteria tanaman dan kriteria teknis lanskap untuk RTH pada kaveling yang berfungsi sebagai peneduh, peredam suara, penyaring bau, dan/atau penyaring debu sesuai dengan peraturan perundang-undangan.",
+        },
+        {
+          name: "Ruang Terbuka Biru",
+          image:
+            "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_C/Ruang%20Tebuka%20Biru/01.%20danau.png",
+          description:
+            "Ruang Terbuka Biru paling sedikit memiliki kriteria : berupa badan air atau ruang perairan; penyedia ketersediaan air; memiliki fungsi retensi berupa penampungan dan penyerapan air hujan pada suatu wilayah; memiliki fungsi detensi berupa penampungan sementara air hujan pada suatu wilayah; dan/atau penyedia ruang tampungan air tanah dan pengendali air banjir.",
+        },
+      ],
+    },
   };
 
   const typologyCount = Object.keys(rthTypologies).length;
