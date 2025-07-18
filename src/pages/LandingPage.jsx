@@ -279,7 +279,7 @@ const NewsCard = ({
         {excerpt}
       </p>
       <button
-        onClick={() => onNavigate(`news-detail-${id}`)}
+        onClick={() => onNavigate(`/news-detail/${id}`)}
         className="text-green-700 hover:text-green-800 text-base font-semibold transition-colors duration-200 flex items-center group"
       >
         Baca Selengkapnya
@@ -343,7 +343,7 @@ const NewsSection = ({ onNavigate }) => {
         </div>
         <div className="text-center">
           <button
-            onClick={() => onNavigate("news")}
+            onClick={() => onNavigate("/news")}
             className="bg-green-700 text-white font-semibold text-base py-2 px-4 rounded-lg hover:bg-green-800 transition-all duration-200 inline-flex items-center transform hover:scale-105"
           >
             Lihat Semua Berita

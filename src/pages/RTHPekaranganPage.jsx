@@ -49,32 +49,13 @@ const RTHPekaranganPage = ({ onNavigate }) => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center gap-4">
             <button
-              onClick={() => onNavigate("rth-info")}
+              onClick={() => onNavigate("/rth-info")}
               className="flex items-center gap-2 text-gray-600 hover:text-green-700 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Kembali ke Informasi RTH</span>
             </button>
           </div>
-
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mt-2">
-            <button
-              onClick={() => onNavigate("LandingPage")}
-              className="hover:text-green-700 transition-colors"
-            >
-              Beranda
-            </button>
-            <span>/</span>
-            <button
-              onClick={() => onNavigate("rth-info")}
-              className="hover:text-green-700 transition-colors"
-            >
-              Informasi RTH
-            </button>
-            <span>/</span>
-            <span className="text-green-700 font-medium">RTH Pekarangan</span>
-          </nav>
         </div>
       </div>
 

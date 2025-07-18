@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const RTHDetailPage = ({ onNavigate, articleId }) => {
+const RTHDetailPage = ({ onNavigate }) => {
+  const { articleId } = useParams();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -167,7 +169,7 @@ const RTHDetailPage = ({ onNavigate, articleId }) => {
             Maaf, artikel RTH yang Anda cari tidak dapat ditemukan.
           </p>
           <button
-            onClick={() => onNavigate("rth-info")}
+            onClick={() => onNavigate("/rth-info")}
             className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
           >
             Kembali ke Informasi RTH
@@ -179,49 +181,6 @@ const RTHDetailPage = ({ onNavigate, articleId }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-6 py-4">
-          <nav className="flex items-center space-x-2 text-sm">
-            <button
-              onClick={() => onNavigate("LandingPage")}
-              className="text-green-600 hover:text-green-800 transition-colors"
-            >
-              Beranda
-            </button>
-            <svg
-              className="w-4 h-4 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <button
-              onClick={() => onNavigate("rth-info")}
-              className="text-green-600 hover:text-green-800 transition-colors"
-            >
-              Informasi RTH
-            </button>
-            <svg
-              className="w-4 h-4 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-gray-500 truncate">{article.title}</span>
-          </nav>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -415,7 +374,7 @@ const RTHDetailPage = ({ onNavigate, articleId }) => {
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <button
-                    onClick={() => onNavigate("rth-info")}
+                    onClick={() => onNavigate("/rth-info")}
                     className="text-green-600 hover:text-green-800 text-sm font-medium"
                   >
                     Lihat Semua Artikel RTH →

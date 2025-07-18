@@ -113,33 +113,6 @@ const RTHInfoPage = ({ onNavigate }) => {
             Lingkungan
           </p>
         </div>
-        {/* Breadcrumb */}
-        <nav className="flex mb-8" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <button
-                onClick={() => onNavigate("LandingPage")}
-                className="text-gray-500 hover:text-green-600 transition-colors"
-              >
-                Beranda
-              </button>
-            </li>
-            <svg
-              className="w-4 h-4 text-gray-400 mx-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <li className="inline-flex items-center">
-              <span className="text-gray-800 font-medium">Informasi RTH</span>
-            </li>
-          </ol>
-        </nav>
 
         {/* Definisi RTH */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
@@ -208,7 +181,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Bangunan Atap */}
             <div
               className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-atap")}
+              onClick={() => onNavigate("/rth-atap")}
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -248,7 +221,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Pekarangan */}
             <div
               className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-pekarangan")}
+              onClick={() => onNavigate("/rth-pekarangan")}
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -288,7 +261,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Lingkungan */}
             <div
               className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-lingkungan")}
+              onClick={() => onNavigate("/rth-lingkungan")}
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -508,7 +481,9 @@ const RTHInfoPage = ({ onNavigate }) => {
 
               <div className="text-center mt-8">
                 <button
-                  onClick={() => onNavigate(`rth-typology-${selectedTypology}`)}
+                  onClick={() =>
+                    onNavigate(`/rth-typology/${selectedTypology}`)
+                  }
                   className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium inline-flex items-center"
                 >
                   Lihat Detail Lengkap

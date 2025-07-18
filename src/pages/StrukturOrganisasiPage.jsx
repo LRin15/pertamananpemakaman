@@ -1,39 +1,6 @@
-import { ArrowLeft } from "lucide-react";
-
 const StrukturOrganisasiPage = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => onNavigate("LandingPage")}
-              className="flex items-center gap-2 text-gray-600 hover:text-green-700 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Kembali ke Beranda</span>
-            </button>
-          </div>
-
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mt-2">
-            <button
-              onClick={() => onNavigate("LandingPage")}
-              className="hover:text-green-700 transition-colors"
-            >
-              Beranda
-            </button>
-            <span>/</span>
-            <span className="text-gray-700">Tentang Kami</span>
-            <span>/</span>
-            <span className="text-green-700 font-medium">
-              Struktur Organisasi
-            </span>
-          </nav>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
         <div className="max-w-6xl mx-auto">
