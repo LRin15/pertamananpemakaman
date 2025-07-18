@@ -15,7 +15,8 @@ const NewsPage = ({ onNavigate }) => {
         "Dinas Pertamanan dan Hutan Kota DKI Jakarta memulai program massal penanaman pohon untuk meningkatkan kualitas udara di ibu kota.",
       content:
         "Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta resmi memulai program penanaman 10.000 pohon di wilayah Jakarta Selatan. Program ini merupakan bagian dari upaya pemerintah provinsi untuk meningkatkan tutupan hijau dan kualitas udara di ibu kota. Pohon yang ditanam meliputi berbagai jenis seperti mahoni, trembesi, dan angsana yang telah terbukti efektif dalam menyerap polutan udara.",
-      image: "https://i.pinimg.com/1200x/f8/1c/83/f81c839d8e5f53dee398b2cfdb136c47.jpg",
+      image:
+        "https://i.pinimg.com/1200x/f8/1c/83/f81c839d8e5f53dee398b2cfdb136c47.jpg",
       author: "Tim Redaksi",
       date: "2024-12-20",
       category: "program",
@@ -29,7 +30,8 @@ const NewsPage = ({ onNavigate }) => {
         "Taman Menteng berhasil meraih penghargaan sebagai taman kota terbaik se-Asia Tenggara berkat inovasi konsep ramah lingkungan.",
       content:
         "Jakarta - Taman Menteng yang dikelola oleh Dinas Pertamanan dan Hutan Kota DKI Jakarta berhasil meraih penghargaan bergengsi sebagai taman kota terbaik se-Asia Tenggara. Penghargaan ini diberikan atas inovasi konsep taman yang menggabungkan teknologi modern dengan kelestarian lingkungan. Taman ini dilengkapi dengan sistem irigasi otomatis, area rekreasi keluarga, dan fasilitas olahraga yang lengkap.",
-      image: "https://i.pinimg.com/736x/db/03/ee/db03ee38babbb163567aa0397e0b26a4.jpg",
+      image:
+        "https://i.pinimg.com/736x/db/03/ee/db03ee38babbb163567aa0397e0b26a4.jpg",
       author: "Sarah Wijaya",
       date: "2024-12-18",
       category: "prestasi",
@@ -44,7 +46,8 @@ const NewsPage = ({ onNavigate }) => {
         "Sistem perizinan pemakaman digital akan segera diimplementasikan untuk mempermudah masyarakat dalam mengurus administrasi pemakaman.",
       content:
         "Jakarta - Mulai Januari 2025, Dinas Pertamanan dan Hutan Kota DKI Jakarta akan menerapkan sistem perizinan pemakaman digital. Sistem ini memungkinkan masyarakat untuk mengurus izin pemakaman secara online tanpa perlu datang langsung ke kantor dinas. Fitur-fitur yang tersedia meliputi pengajuan izin, pembayaran retribusi, dan tracking status permohonan secara real-time.",
-      image: "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
+      image:
+        "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
       author: "Ahmad Rizki",
       date: "2024-12-15",
       category: "kebijakan",
@@ -58,7 +61,8 @@ const NewsPage = ({ onNavigate }) => {
         "Festival bunga tahunan Jakarta akan menampilkan berbagai jenis bunga langka dan eksotis dari seluruh nusantara.",
       content:
         "Jakarta - Festival Bunga Tahunan Jakarta 2024 akan diselenggarakan di area Monas pada 25-31 Desember 2024. Acara ini menampilkan lebih dari 500 jenis bunga langka dan eksotis dari berbagai daerah di Indonesia. Pengunjung dapat menikmati pameran bunga, workshop berkebun, dan kompetisi fotografi dengan tema 'Keindahan Alam Jakarta'.",
-      image: "https://i.pinimg.com/1200x/b4/29/ff/b429ff88a01edd815809e9c9012f9744.jpg",
+      image:
+        "https://i.pinimg.com/1200x/b4/29/ff/b429ff88a01edd815809e9c9012f9744.jpg",
       author: "Lisa Pratiwi",
       date: "2024-12-12",
       category: "acara",
@@ -73,7 +77,8 @@ const NewsPage = ({ onNavigate }) => {
         "Inovasi terbaru menggunakan kecerdasan buatan untuk memantau kondisi kesehatan pohon-pohon di seluruh Jakarta secara real-time.",
       content:
         "Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta mengimplementasikan teknologi Artificial Intelligence (AI) untuk monitoring kesehatan pohon di seluruh wilayah Jakarta. Sistem ini dapat mendeteksi penyakit pohon, tingkat stress, dan prediksi umur pohon dengan akurasi tinggi. Teknologi ini membantu petugas dalam melakukan perawatan preventif dan mengurangi risiko pohon tumbang.",
-      image: "https://i.pinimg.com/736x/e1/c0/e7/e1c0e7167388a7e6156f9b4193fcefcf.jpg",
+      image:
+        "https://i.pinimg.com/736x/e1/c0/e7/e1c0e7167388a7e6156f9b4193fcefcf.jpg",
       author: "Dr. Bambang Sutrisno",
       date: "2024-12-10",
       category: "teknologi",
@@ -87,7 +92,8 @@ const NewsPage = ({ onNavigate }) => {
         "Program kemitraan dengan komunitas lokal untuk pengelolaan dan perawatan taman-taman lingkungan di Jakarta.",
       content:
         "Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta meluncurkan program kolaborasi dengan berbagai komunitas lokal untuk pengelolaan taman lingkungan. Program 'Jakarta Hijau Bersama' ini melibatkan 50 komunitas yang tersebar di lima wilayah Jakarta. Setiap komunitas akan bertanggung jawab dalam perawatan, pemeliharaan, dan pengembangan kreativitas di taman-taman sekitar mereka.",
-      image: "https://i.pinimg.com/1200x/56/02/8e/56028ea8ac3dabc5b744c88669966150.jpg",
+      image:
+        "https://i.pinimg.com/1200x/56/02/8e/56028ea8ac3dabc5b744c88669966150.jpg",
       author: "Rina Marlina",
       date: "2024-12-08",
       category: "komunitas",
@@ -101,7 +107,8 @@ const NewsPage = ({ onNavigate }) => {
         "Setelah renovasi selama 6 bulan, Hutan Kota Srengseng kembali dibuka dengan fasilitas yang lebih lengkap dan modern.",
       content:
         "Jakarta - Hutan Kota Srengseng resmi dibuka kembali untuk publik setelah menjalani renovasi besar-besaran selama 6 bulan. Renovasi ini mencakup perbaikan jalur tracking, penambahan gazebo, area playground anak, dan fasilitas toilet yang lebih bersih. Hutan kota seluas 15 hektar ini juga dilengkapi dengan papan informasi digital dan sistem keamanan CCTV untuk kenyamanan pengunjung.",
-      image: "https://i.pinimg.com/736x/19/72/8a/19728a39a4361e274f0c3cfe1b38bcb5.jpg",
+      image:
+        "https://i.pinimg.com/736x/19/72/8a/19728a39a4361e274f0c3cfe1b38bcb5.jpg",
       author: "Yudi Hermawan",
       date: "2024-12-05",
       category: "fasilitas",
@@ -115,7 +122,8 @@ const NewsPage = ({ onNavigate }) => {
         "Program edukasi lingkungan untuk meningkatkan kesadaran siswa sekolah dasar tentang pentingnya menjaga kelestarian alam.",
       content:
         "Jakarta - Dinas Pertamanan dan Hutan Kota DKI Jakarta menggelar workshop edukasi lingkungan untuk siswa SD se-Jakarta. Program 'Generasi Hijau Jakarta' ini bertujuan mengenalkan pentingnya kelestarian lingkungan sejak dini. Materi workshop meliputi cara menanam, merawat tanaman, pengelolaan sampah, dan pemahaman ekosistem. Hingga saat ini, lebih dari 10.000 siswa telah mengikuti program ini.",
-      image: "https://i.pinimg.com/736x/62/21/15/622115c29ee38c690bd897f4e85d230f.jpg",
+      image:
+        "https://i.pinimg.com/736x/62/21/15/622115c29ee38c690bd897f4e85d230f.jpg",
       author: "Sari Indrawati",
       date: "2024-12-03",
       category: "edukasi",
@@ -258,7 +266,7 @@ const NewsPage = ({ onNavigate }) => {
                   <div
                     key={news.id}
                     className="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                    onClick={() => onNavigate(`news-detail-${news.id}`)}
+                    onClick={() => onNavigate(`/news-detail/${news.id}`)}
                   >
                     <div className="relative">
                       <img
@@ -347,17 +355,19 @@ const NewsPage = ({ onNavigate }) => {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === category.id
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  selectedCategory === category.id
                     ? "bg-green-600 text-white shadow-lg"
                     : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600 border border-gray-200"
-                  }`}
+                }`}
               >
                 {category.name}
                 <span
-                  className={`ml-2 px-2 py-1 rounded-full text-xs ${selectedCategory === category.id
+                  className={`ml-2 px-2 py-1 rounded-full text-xs ${
+                    selectedCategory === category.id
                       ? "bg-green-500 text-white"
                       : "bg-gray-100 text-gray-500"
-                    }`}
+                  }`}
                 >
                   {category.count}
                 </span>
@@ -425,7 +435,7 @@ const NewsPage = ({ onNavigate }) => {
                     </div>
 
                     <button
-                      onClick={() => onNavigate(`news-detail-${news.id}`)}
+                      onClick={() => onNavigate(`/news-detail/${news.id}`)}
                       className="text-green-600 hover:text-green-800 font-medium flex items-center transition-colors"
                     >
                       Baca Selengkapnya
@@ -463,10 +473,11 @@ const NewsPage = ({ onNavigate }) => {
                   <button
                     key={index + 1}
                     onClick={() => setCurrentPage(index + 1)}
-                    className={`px-3 py-2 text-sm rounded-md ${currentPage === index + 1
+                    className={`px-3 py-2 text-sm rounded-md ${
+                      currentPage === index + 1
                         ? "bg-green-600 text-white"
                         : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                      }`}
+                    }`}
                   >
                     {index + 1}
                   </button>
