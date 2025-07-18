@@ -407,7 +407,7 @@ const NewsDetailPage = ({ onNavigate }) => {
         <div className="container mx-auto px-6 py-4">
           <nav className="flex items-center space-x-2 text-sm">
             <button
-              onClick={() => onNavigate("LandingPage")}
+              onClick={() => onNavigate("/")}
               className="text-green-600 hover:text-green-800 transition-colors"
             >
               Beranda
