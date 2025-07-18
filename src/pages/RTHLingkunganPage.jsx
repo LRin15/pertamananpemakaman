@@ -68,7 +68,7 @@ const RTHLingkunganPage = ({ onNavigate }) => {
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500 mt-2">
             <button
-              onClick={() => onNavigate("LandingPage")}
+              onClick={() => onNavigate("/")}
               className="hover:text-green-700 transition-colors"
             >
               Beranda
