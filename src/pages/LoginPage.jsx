@@ -58,13 +58,7 @@ const LoginPage = ({ onNavigate, onLoginSuccess }) => {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-green-700 rounded-full flex items-center justify-center">
-              <img
-                src="https://placehold.co/60x60/ffffff/004a26?text=DKI"
-                alt="Logo DKI"
-                className="w-12 h-12"
-              />
-            </div>
+            <img src="/images/logo.png" alt="Logo DKI" className="w-25 h-25" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Masuk ke Akun Anda
