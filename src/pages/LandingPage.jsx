@@ -279,7 +279,7 @@ const NewsCard = ({
         {excerpt}
       </p>
       <button
-        onClick={() => onNavigate(`news-detail-${id}`)}
+        onClick={() => onNavigate(`/news-detail/${id}`)}
         className="text-green-700 hover:text-green-800 text-base font-semibold transition-colors duration-200 flex items-center group"
       >
         Baca Selengkapnya
