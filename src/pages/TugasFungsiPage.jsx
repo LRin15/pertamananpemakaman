@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle, Settings, FileText } from "lucide-react";
+import { CheckCircle, Settings, FileText } from "lucide-react";
 
 const TugasFungsiPage = ({ onNavigate }) => {
   const fungsiList = [
