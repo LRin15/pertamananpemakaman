@@ -621,7 +621,7 @@ const MapPage = ({ onNavigate }) => {
         {/* Map Container */}
         <div className="relative h-screen overflow-hidden">
           {/* Search Bar */}
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000]">
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[40]">
             <div className="bg-white rounded-lg shadow-lg p-4 w-96">
               <div className="relative">
                 <input
@@ -650,7 +650,7 @@ const MapPage = ({ onNavigate }) => {
 
           {/* Layer Control Icon */}
           <div
-            className="absolute top-4 right-4 z-[1000]"
+            className="absolute top-4 right-4 z-[40]"
             onMouseEnter={() => setIsControlsVisible(true)}
             onMouseLeave={() => setIsControlsVisible(false)}
           >
@@ -754,7 +754,7 @@ const MapPage = ({ onNavigate }) => {
           <div ref={mapRef} className="w-full h-full" style={{ zIndex: 1 }} />
 
           {/* Custom Zoom Controls */}
-          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-lg shadow-lg z-[1000]">
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-lg shadow-lg z-[40]">
             <button
               onClick={handleZoomIn}
               className="block w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-t-lg border-b transition-colors"
