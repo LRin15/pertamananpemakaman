@@ -3,7 +3,7 @@ import { useState } from "react";
 const RTHInfoPage = ({ onNavigate }) => {
   const [selectedTypology, setSelectedTypology] = useState(null);
 
-  // Data tipologi RTH
+    // Data tipologi RTH
   const rthTypologies = {
     a: {
       title: "Tipologi A - RTH Publik",
@@ -208,7 +208,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Bangunan Atap */}
             <div
               className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-atap")}
+                            onClick={() => onNavigate("/rth-atap"))
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -248,7 +248,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Pekarangan */}
             <div
               className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-pekarangan")}
+                            onClick={() => onNavigate("/rth-pekarangan"))
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -288,7 +288,7 @@ const RTHInfoPage = ({ onNavigate }) => {
             {/* Lingkungan */}
             <div
               className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onClick={() => onNavigate("rth-lingkungan")}
+                            onClick={() => onNavigate("/rth-lingkungan"))
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -508,7 +508,7 @@ const RTHInfoPage = ({ onNavigate }) => {
 
               <div className="text-center mt-8">
                 <button
-                  onClick={() => onNavigate(`rth-typology-${selectedTypology}`)}
+                                    onClick={() => onNavigate(`/rth-typology/${selectedTypology}`))
                   className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium inline-flex items-center"
                 >
                   Lihat Detail Lengkap
