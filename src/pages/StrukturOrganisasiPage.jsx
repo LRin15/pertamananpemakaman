@@ -1,5 +1,3 @@
-import { ArrowLeft } from "lucide-react";
-
 const StrukturOrganisasiPage = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-gray-50">
