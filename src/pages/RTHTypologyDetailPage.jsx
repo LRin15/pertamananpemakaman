@@ -809,7 +809,7 @@ const RTHTypologyDetailPage = ({ onNavigate }) => {
             Tipologi Tidak Ditemukan
           </h2>
           <button
-            onClick={() => onNavigate("rth-info")}
+            onClick={() => onNavigate("/rth-info")}
             className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
           >
             Kembali ke RTH Info
@@ -845,7 +845,7 @@ const RTHTypologyDetailPage = ({ onNavigate }) => {
               />
             </svg>
             <button
-              onClick={() => onNavigate("rth-info")}
+              onClick={() => onNavigate("/rth-info")}
               className="text-green-600 hover:text-green-800 transition-colors"
             >
               Informasi RTH
