@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const RTHDetailPage = ({ onNavigate, articleId }) => {
+const RTHDetailPage = ({ onNavigate }) => {
+  const { articleId } = useParams();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
   const [loading, setLoading] = useState(true);
