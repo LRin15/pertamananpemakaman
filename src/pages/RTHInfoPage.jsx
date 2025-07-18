@@ -118,7 +118,7 @@ const RTHInfoPage = ({ onNavigate }) => {
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
               <button
-                onClick={() => onNavigate("LandingPage")}
+                onClick={() => onNavigate("/")}
                 className="text-gray-500 hover:text-green-600 transition-colors"
               >
                 Beranda
