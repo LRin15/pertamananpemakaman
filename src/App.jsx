@@ -2,12 +2,14 @@
 
 import "./index.css";
 import { useState, useEffect } from "react";
+// Impor komponen yang diperlukan dari React Router
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 // Import komponen layout
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-// Import halaman-halaman
+// Import semua halaman
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -37,6 +39,7 @@ import VisiMisiPage from "./pages/VisiMisiPage";
 import TugasFungsiPage from "./pages/TugasFungsiPage";
 import SejarahPage from "./pages/SejarahPage";
 
+// Komponen Notifikasi (Tidak ada perubahan)
 const Notification = ({ message, onClear }) => {
   useEffect(() => {
     if (message) {
@@ -56,13 +59,16 @@ const Notification = ({ message, onClear }) => {
   );
 };
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState("LandingPage");
+// Komponen ini berisi logika utama agar bisa menggunakan hooks
+const AppContent = () => {
   const [notificationMessage, setNotificationMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate(); // Hook untuk navigasi
 
-  const handleNavigate = (page, message = "") => {
-    setCurrentPage(page);
+  // handleNavigate tidak lagi diperlukan di sini, karena navigasi ditangani oleh Link/NavLink
+  // Namun, kita tetap menyediakannya jika diperlukan untuk navigasi programatik dari dalam halaman
+  const handleNavigate = (path, message = "") => {
+    navigate(path);
     if (message) {
       setNotificationMessage(message);
     }
@@ -71,105 +77,13 @@ export default function App() {
   const handleLoginSuccess = (message) => {
     setIsLoggedIn(true);
     setNotificationMessage(message);
-    setCurrentPage("LandingPage");
+    navigate("/"); // Arahkan ke beranda setelah login sukses
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setNotificationMessage("Anda telah berhasil log out.");
-    setCurrentPage("LandingPage");
-  };
-
-  const renderPageContent = () => {
-    switch (currentPage) {
-      case "LandingPage":
-        return <LandingPage onNavigate={handleNavigate} />;
-      case "login":
-        return (
-          <LoginPage
-            onNavigate={handleNavigate}
-            onLoginSuccess={handleLoginSuccess}
-          />
-        );
-      case "register":
-        return <RegisterPage onNavigate={handleNavigate} />;
-      case "forgot-password":
-        return <ForgotPasswordPage onNavigate={handleNavigate} />;
-      case "park-schedule":
-        return <ParkSchedulePage onNavigate={handleNavigate} />;
-      case "park-application":
-        return <ParkApplicationPage onNavigate={handleNavigate} />;
-      case "map":
-        return <MapPage onNavigate={handleNavigate} />;
-      case "catalog":
-        return <CatalogPage onNavigate={handleNavigate} />;
-      case "Kthprofile":
-        return <KTHProfilePage onNavigate={handleNavigate} />;
-      case "news":
-        return <NewsPage onNavigate={handleNavigate} />;
-      case "regulation":
-        return <RegulationPage onNavigate={handleNavigate} />;
-      case "rth-info":
-        return <RTHInfoPage onNavigate={handleNavigate} />;
-      case "rth-atap":
-        return <RTHAtapPage onNavigate={handleNavigate} />;
-      case "rth-pekarangan":
-        return <RTHPekaranganPage onNavigate={handleNavigate} />;
-      case "rth-lingkungan":
-        return <RTHLingkunganPage onNavigate={handleNavigate} />;
-      case "tree-application":
-        return <TreePruningApplicationPage onNavigate={handleNavigate} />;
-      case "seedling-application":
-        return <SeedlingApplicationPage onNavigate={handleNavigate} />;
-      case "account-profile":
-        return <AccountProfilePage onNavigate={handleNavigate} />;
-      case "tree-fall-claim":
-        return <TreeFallClaimPage onNavigate={handleNavigate} />;
-      case "cemetery-search":
-        return <CemeteryDataSearchPage onNavigate={handleNavigate} />;
-      case "cemetery-availability":
-        return <CemeteryAvailabilityPage onNavigate={handleNavigate} />;
-      case "struktur-organisasi":
-        return <StrukturOrganisasiPage onNavigate={handleNavigate} />;
-      case "visi-misi":
-        return <VisiMisiPage onNavigate={handleNavigate} />;
-      case "tugas-fungsi":
-        return <TugasFungsiPage onNavigate={handleNavigate} />;
-      case "sejarah":
-        return <SejarahPage onNavigate={handleNavigate} />;
-      default:
-        // Handle dynamic routes like news-detail-1, news-detail-2, etc.
-        if (currentPage.startsWith("news-detail-")) {
-          const newsId = currentPage.split("-")[2];
-          return <NewsDetailPage onNavigate={handleNavigate} newsId={newsId} />;
-        }
-        // Handle RTH detail routes
-        if (currentPage.startsWith("rth-detail-")) {
-          const articleId = currentPage.split("-")[2];
-          return (
-            <RTHDetailPage onNavigate={handleNavigate} articleId={articleId} />
-          );
-        }
-        // Handle RTH typology detail routes
-        if (currentPage.startsWith("rth-typology-")) {
-          const typology = currentPage.split("-")[2];
-          return (
-            <RTHTypologyDetailPage
-              onNavigate={handleNavigate}
-              typology={typology}
-            />
-          );
-        }
-        // Handle regulation detail routes
-        if (currentPage.startsWith("regulasi-")) {
-          const type = currentPage.replace("regulasi-", "");
-          return (
-            <RegulationDetailPage onNavigate={handleNavigate} type={type} />
-          );
-        }
-        // Halaman default jika state tidak cocok
-        return <LandingPage onNavigate={handleNavigate} />;
-    }
+    navigate("/"); // Arahkan ke beranda setelah logout
   };
 
   return (
@@ -179,15 +93,147 @@ export default function App() {
         onClear={() => setNotificationMessage("")}
       />
 
-      <Header
-        onNavigate={handleNavigate}
-        isLoggedIn={isLoggedIn}
-        onLogout={handleLogout}
-      />
+      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
 
-      <main className="flex-1">{renderPageContent()}</main>
+      <main className="flex-1">
+        <Routes>
+          {/* Definisikan semua rute di sini */}
+          <Route
+            path="/"
+            element={<LandingPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                onNavigate={handleNavigate}
+                onLoginSuccess={handleLoginSuccess}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={<RegisterPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPasswordPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/park-schedule"
+            element={<ParkSchedulePage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/park-application"
+            element={<ParkApplicationPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/map"
+            element={<MapPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/catalog"
+            element={<CatalogPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/kth-profile"
+            element={<KTHProfilePage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/news"
+            element={<NewsPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/news-detail/:newsId"
+            element={<NewsDetailPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/regulation"
+            element={<RegulationPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-info"
+            element={<RTHInfoPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-detail/:articleId"
+            element={<RTHDetailPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-typology/:typology"
+            element={<RTHTypologyDetailPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-atap"
+            element={<RTHAtapPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-pekarangan"
+            element={<RTHPekaranganPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/rth-lingkungan"
+            element={<RTHLingkunganPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/tree-application"
+            element={<TreePruningApplicationPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/seedling-application"
+            element={<SeedlingApplicationPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/tree-fall-claim"
+            element={<TreeFallClaimPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/account-profile"
+            element={<AccountProfilePage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/cemetery-search"
+            element={<CemeteryDataSearchPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/cemetery-availability"
+            element={<CemeteryAvailabilityPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/struktur-organisasi"
+            element={<StrukturOrganisasiPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/visi-misi"
+            element={<VisiMisiPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/tugas-fungsi"
+            element={<TugasFungsiPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/sejarah"
+            element={<SejarahPage onNavigate={handleNavigate} />}
+          />
+
+          {/* Rute fallback jika URL tidak ditemukan */}
+          <Route
+            path="*"
+            element={<LandingPage onNavigate={handleNavigate} />}
+          />
+        </Routes>
+      </main>
 
       <Footer />
     </div>
+  );
+};
+
+export default function App() {
+  return (
+    // Bungkus seluruh aplikasi dengan BrowserRouter
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
