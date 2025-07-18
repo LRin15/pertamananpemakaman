@@ -207,8 +207,8 @@ const RTHInfoPage = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Bangunan Atap */}
             <div
-              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                            onClick={() => onNavigate("/rth-atap"))
+                            className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              onClick={() => onNavigate("/rth-atap")}
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
