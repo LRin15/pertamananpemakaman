@@ -12,7 +12,7 @@ const RTHTypologyDetailPage = ({ onNavigate, typology }) => {
         "Ruang Terbuka Hijau yang dikelola pemerintah untuk kepentingan umum",
       types: [
         {
-          name: "",
+          name: "Jalur Hijau",
           image:
             "https://pertamananpemakaman.jakarta.go.id/assets/data/data-tipologi/tipologi_A/07d.%20jalur%20hijau%20sempadan%20rel%20kereta%20api.png",
           description:
