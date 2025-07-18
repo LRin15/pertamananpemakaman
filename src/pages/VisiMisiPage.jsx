@@ -1,4 +1,4 @@
-import { ArrowLeft, Target, Compass } from "lucide-react";
+import { Target, Compass } from "lucide-react";
 
 const VisiMisiPage = ({ onNavigate }) => {
   return (
