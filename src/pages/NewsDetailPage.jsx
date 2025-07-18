@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const NewsDetailPage = ({ onNavigate, newsId }) => {
+const NewsDetailPage = ({ onNavigate }) => {
+  const { newsId } = useParams();
   const [news, setNews] = useState(null);
   const [relatedNews, setRelatedNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -101,7 +103,8 @@ const NewsDetailPage = ({ onNavigate, newsId }) => {
 
         <p>"Kami berkomitmen untuk memberikan pelayanan terbaik bagi masyarakat Jakarta. Sistem digital ini adalah wujud nyata transformasi digital dalam pelayanan publik," ungkap Ahmad Rizki.</p>
             `,
-      fullImage: "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
+      fullImage:
+        "https://i.pinimg.com/1200x/04/ed/94/04ed94c06441b7316ab76b1cb8a9e77b.jpg",
       author: "Ahmad Rizki",
       authorImage: "/images/logo.png",
       authorBio:
