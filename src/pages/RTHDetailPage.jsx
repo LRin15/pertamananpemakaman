@@ -169,7 +169,7 @@ const RTHDetailPage = ({ onNavigate }) => {
             Maaf, artikel RTH yang Anda cari tidak dapat ditemukan.
           </p>
           <button
-            onClick={() => onNavigate("rth-info")}
+            onClick={() => onNavigate("/rth-info")}
             className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
           >
             Kembali ke Informasi RTH
@@ -203,7 +203,7 @@ const RTHDetailPage = ({ onNavigate }) => {
               />
             </svg>
             <button
-              onClick={() => onNavigate("rth-info")}
+              onClick={() => onNavigate("/rth-info")}
               className="text-green-600 hover:text-green-800 transition-colors"
             >
               Informasi RTH
@@ -417,7 +417,7 @@ const RTHDetailPage = ({ onNavigate }) => {
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <button
-                    onClick={() => onNavigate("rth-info")}
+                    onClick={() => onNavigate("/rth-info")}
                     className="text-green-600 hover:text-green-800 text-sm font-medium"
                   >
                     Lihat Semua Artikel RTH →
