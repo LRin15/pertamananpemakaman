@@ -6,20 +6,10 @@ const StrukturOrganisasiPage = ({ onNavigate }) => {
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => onNavigate("LandingPage")}
-              className="flex items-center gap-2 text-gray-600 hover:text-green-700 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Kembali ke Beranda</span>
-            </button>
-          </div>
-
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mt-2">
+          <nav className="flex items-center gap-2 text-sm text-gray-500">
             <button
-              onClick={() => onNavigate("LandingPage")}
+              onClick={() => onNavigate("/")}
               className="hover:text-green-700 transition-colors"
             >
               Beranda
