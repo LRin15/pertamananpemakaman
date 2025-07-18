@@ -402,49 +402,6 @@ const NewsDetailPage = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-6 py-4">
-          <nav className="flex items-center space-x-2 text-sm">
-            <button
-              onClick={() => onNavigate("/")}
-              className="text-green-600 hover:text-green-800 transition-colors"
-            >
-              Beranda
-            </button>
-            <svg
-              className="w-4 h-4 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <button
-              onClick={() => onNavigate("news")}
-              className="text-green-600 hover:text-green-800 transition-colors"
-            >
-              Berita
-            </button>
-            <svg
-              className="w-4 h-4 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-gray-500 truncate">{news.title}</span>
-          </nav>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
         <div className="max-w-4xl mx-auto">
