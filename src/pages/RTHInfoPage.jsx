@@ -287,8 +287,8 @@ const RTHInfoPage = ({ onNavigate }) => {
 
             {/* Lingkungan */}
             <div
-              className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                            onClick={() => onNavigate("/rth-lingkungan"))
+                            className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              onClick={() => onNavigate("/rth-lingkungan")}
             >
               <div className="text-center">
                 <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
