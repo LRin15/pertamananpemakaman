@@ -3,7 +3,7 @@ import { useState } from "react";
 const RTHInfoPage = ({ onNavigate }) => {
   const [selectedTypology, setSelectedTypology] = useState(null);
 
-    // Data tipologi RTH
+  // Data tipologi RTH
   const rthTypologies = {
     a: {
       title: "Tipologi A - RTH Publik",
@@ -207,7 +207,7 @@ const RTHInfoPage = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Bangunan Atap */}
             <div
-                            className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
               onClick={() => onNavigate("/rth-atap")}
             >
               <div className="text-center">
@@ -247,7 +247,7 @@ const RTHInfoPage = ({ onNavigate }) => {
 
             {/* Pekarangan */}
             <div
-                            className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
               onClick={() => onNavigate("/rth-pekarangan")}
             >
               <div className="text-center">
@@ -287,7 +287,7 @@ const RTHInfoPage = ({ onNavigate }) => {
 
             {/* Lingkungan */}
             <div
-                            className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
               onClick={() => onNavigate("/rth-lingkungan")}
             >
               <div className="text-center">
@@ -508,7 +508,9 @@ const RTHInfoPage = ({ onNavigate }) => {
 
               <div className="text-center mt-8">
                 <button
-                                    onClick={() => onNavigate(`/rth-typology/${selectedTypology}`))
+                  onClick={() =>
+                    onNavigate(`/rth-typology/${selectedTypology}`)
+                  }
                   className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium inline-flex items-center"
                 >
                   Lihat Detail Lengkap
