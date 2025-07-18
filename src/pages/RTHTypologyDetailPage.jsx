@@ -952,7 +952,7 @@ const RTHTypologyDetailPage = ({ onNavigate }) => {
             {Object.entries(rthTypologies).map(([key, typ]) => (
               <button
                 key={key}
-                onClick={() => onNavigate(`rth-typology-${key}`)}
+                onClick={() => onNavigate(`/rth-typology/${key}`)}
                 className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
                   typology === key
                     ? "border-green-500 bg-green-50 cursor-default"
