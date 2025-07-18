@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const RTHTypologyDetailPage = ({ onNavigate, typology }) => {
+const RTHTypologyDetailPage = ({ onNavigate }) => {
+  const { typology } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedType, setSelectedType] = useState(0);
 
