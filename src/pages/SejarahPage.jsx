@@ -1,4 +1,4 @@
-import { ArrowLeft, Clock, Calendar } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 
 const SejarahPage = ({ onNavigate }) => {
   const sejarahData = [
