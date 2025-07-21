@@ -103,17 +103,6 @@ const RTHInfoPage = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-6 py-12">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Informasi RTH
-          </h1>
-          <p className="text-lg text-gray-600">
-            Ruang Terbuka Hijau untuk Jakarta yang Berkelanjutan dan Ramah
-            Lingkungan
-          </p>
-        </div>
-
         {/* Definisi RTH */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">

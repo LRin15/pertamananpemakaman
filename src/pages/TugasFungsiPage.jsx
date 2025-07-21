@@ -25,16 +25,6 @@ const TugasFungsiPage = ({ onNavigate }) => {
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
         <div className="max-w-4xl mx-auto">
-          {/* Page Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Tugas & Fungsi
-            </h1>
-            <p className="text-lg text-gray-600">
-              Dinas Pertamanan dan Hutan Kota Provinsi DKI Jakarta
-            </p>
-          </div>
-
           {/* Tugas Pokok Section */}
           <div className="bg-white rounded-lg shadow-sm border p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">

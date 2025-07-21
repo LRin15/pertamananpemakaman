@@ -1,5 +1,4 @@
 import {
-  ArrowLeft,
   Droplets,
   Leaf,
   Users,
@@ -52,20 +51,7 @@ const RTHLingkunganPage = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => onNavigate("/rth-info")}
-              className="flex items-center gap-2 text-gray-600 hover:text-green-700 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Kembali ke Informasi RTH</span>
-            </button>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
