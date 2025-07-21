@@ -337,7 +337,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/dasarhukum/PERGUB 120 Tahun 2016.pdf",
     },
     {
-      id: 35,
+      id: 36,
       category: "PERGUB",
       type: "149",
       number: "TAHUN 2018",
@@ -346,7 +346,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-149-2018.pdf",
     },
     {
-      id: 36,
+      id: 37,
       category: "PERGUB",
       type: "157",
       number: "TAHUN 2019",
@@ -355,7 +355,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-157-2019.pdf",
     },
     {
-      id: 37,
+      id: 38,
       category: "PERGUB",
       type: "173",
       number: "TAHUN 2009",
@@ -364,7 +364,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-173-2009.pdf",
     },
     {
-      id: 38,
+      id: 39,
       category: "PERGUB",
       type: "184",
       number: "TAHUN 2012",
@@ -373,7 +373,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-184-2012.pdf",
     },
     {
-      id: 39,
+      id: 40,
       category: "PERGUB",
       type: "188",
       number: "TAHUN 2015",
@@ -383,7 +383,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-188-2015.pdf",
     },
     {
-      id: 40,
+      id: 41,
       category: "PERGUB",
       type: "232",
       number: "TAHUN 2014",
@@ -392,7 +392,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-232-2014.pdf",
     },
     {
-      id: 41,
+      id: 42,
       category: "PERGUB",
       type: "249",
       number: "TAHUN 2016",
@@ -402,7 +402,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-249-2016.pdf",
     },
     {
-      id: 42,
+      id: 43,
       category: "PERGUB",
       type: "24",
       number: "TAHUN 2021",
@@ -411,7 +411,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-24-2021.pdf",
     },
     {
-      id: 43,
+      id: 44,
       category: "PERGUB",
       type: "280",
       number: "TAHUN 2016",
@@ -420,7 +420,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-280-2016.pdf",
     },
     {
-      id: 44,
+      id: 45,
       category: "PERGUB",
       type: "40",
       number: "TAHUN 2020",
@@ -430,7 +430,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-40-2020.pdf",
     },
     {
-      id: 45,
+      id: 46,
       category: "PERGUB",
       type: "49",
       number: "TAHUN 2021",
@@ -439,7 +439,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-49-2021.pdf",
     },
     {
-      id: 46,
+      id: 47,
       category: "PERGUB",
       type: "57",
       number: "TAHUN 2022",
@@ -449,7 +449,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/pergub-57-2022.pdf",
     },
     {
-      id: 47,
+      id: 48,
       category: "PERGUB",
       type: "82",
       number: "TAHUN 2017",
@@ -461,7 +461,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // PERMEN
     {
-      id: 48,
+      id: 49,
       category: "PERMEN",
       type: "ATR 14",
       number: "TAHUN 2022",
@@ -470,7 +470,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/dasarhukum/Permen ATR KBPN Nomor 14 Tahun 2022-dikompresi.pdf",
     },
     {
-      id: 49,
+      id: 50,
       category: "PERMEN",
       type: "PU 05",
       number: "TAHUN 2008",
@@ -482,7 +482,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // PERPRES
     {
-      id: 50,
+      id: 51,
       category: "PERPRES",
       type: "65",
       number: "TAHUN 2006",
@@ -494,7 +494,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // PP
     {
-      id: 51,
+      id: 52,
       category: "PP",
       type: "09",
       number: "TAHUN 1987",
@@ -504,7 +504,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/dasarhukum/PP NO 9 TH 1987 (1).pdf",
     },
     {
-      id: 52,
+      id: 53,
       category: "PP",
       type: "63",
       number: "TAHUN 2002",
@@ -515,7 +515,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // RPJMD
     {
-      id: 53,
+      id: 54,
       category: "RPJMD",
       type: "DKI JAKARTA",
       number: "2013-2017",
@@ -526,7 +526,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // SK
     {
-      id: 54,
+      id: 55,
       category: "SK",
       type: "07",
       number: "TAHUN 2022",
@@ -537,7 +537,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // UU
     {
-      id: 55,
+      id: 56,
       category: "UU",
       type: "02",
       number: "TAHUN 2012",
@@ -546,7 +546,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/dasarhukum/UU Nomor 2 Tahun 2012.pdf",
     },
     {
-      id: 56,
+      id: 57,
       category: "UU",
       type: "26",
       number: "TAHUN 2007",
@@ -555,7 +555,7 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/files/uu-26-2007.pdf",
     },
     {
-      id: 57,
+      id: 58,
       category: "UU",
       type: "29",
       number: "TAHUN 2007",
