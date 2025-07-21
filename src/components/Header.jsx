@@ -76,28 +76,6 @@ const Header = ({ isLoggedIn, onLogout }) => {
     },
   ];
 
-  const handleLinkClick = (e, action) => {
-    if (action) {
-      e.preventDefault();
-      onNavigate(action);
-      setActiveMenu("Layanan");
-    }
-    setServicesDropdownOpen(false);
-    setProfileDropdownOpen(false);
-    setMobileMenuOpen(false);
-  };
-
-  const handleTopNavClick = (e, name, action) => {
-    if (action) {
-      e.preventDefault();
-      onNavigate(action);
-    }
-    setActiveMenu(name);
-    setServicesDropdownOpen(false);
-    setProfileDropdownOpen(false);
-    setMobileMenuOpen(false);
-  };
-
   // Fungsi untuk menutup semua menu/dropdown
   const closeAllMenus = () => {
     setMobileMenuOpen(false);
@@ -167,7 +145,6 @@ const Header = ({ isLoggedIn, onLogout }) => {
                     }`}
                     onClick={() => {
                       setOpenDropdown((prev) => (prev === link.name ? null : link.name));
-                      setActiveMenu(link.name);
                     }}
                   >
                     {link.name}
@@ -331,8 +308,104 @@ const Header = ({ isLoggedIn, onLogout }) => {
           isMobileMenuOpen ? "block" : "hidden"
         } md:hidden px-6 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-sm`}
       >
-        {/* Konten mobile menu dirender di sini, logikanya sama dengan desktop */}
-        {/* ... Implementasi lengkap sama dengan di atas, tapi menggunakan NavLink dan Link */}
+        {navLinks.map((link) => (
+          <div key={link.name} className="py-2">
+            {link.hasDropdown ? (
+              <div>
+                <button
+                  onClick={() => toggleSubmenu(link.name)}
+                  className="flex justify-between items-center w-full text-left text-sm text-gray-700 hover:text-green-700 py-2"
+                >
+                  {link.name}
+                  <svg
+                    className={`w-4 h-4 transform transition-transform ${
+                      expandedSubmenu === link.name ? "rotate-90" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+                {expandedSubmenu === link.name && (
+                  <div className="pl-4 mt-2">
+                    {link.dropdownItems.map((item) =>
+                      item.children ? (
+                        <div key={item.name} className="mb-2">
+                          <span className="block text-xs text-gray-500 font-medium mb-1">
+                            {item.name}
+                          </span>
+                          {item.children.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.path}
+                              className="block py-1 text-sm text-gray-600 hover:text-green-700 pl-2"
+                              onClick={closeAllMenus}
+                              target={sub.target}
+                              rel={
+                                sub.target === "_blank"
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          to={item.path}
+                          className="block py-1 text-sm text-gray-600 hover:text-green-700"
+                          onClick={closeAllMenus}
+                        >
+                          {item.name}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+            ) : (
+              renderLink(link, true)
+            )}
+          </div>
+        ))}
+        
+        {/* Mobile Login/Profile */}
+        <div className="pt-4 border-t border-gray-200 mt-4">
+          {!isLoggedIn ? (
+            <Link
+              to="/login"
+              className="block bg-green-700 hover:bg-green-800 text-white px-3 py-2 rounded-md text-sm font-medium text-center"
+              onClick={closeAllMenus}
+            >
+              Login
+            </Link>
+          ) : (
+            <div>
+              <Link
+                to="/account-profile"
+                className="block py-2 text-gray-700 hover:text-green-700"
+                onClick={closeAllMenus}
+              >
+                Profil
+              </Link>
+              <button
+                onClick={handleLogoutClick}
+                className="w-full text-left py-2 text-gray-700 hover:text-green-700"
+              >
+                Log out
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
