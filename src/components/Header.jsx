@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom"; // Impor Link dan NavLink
+import { useLocation } from "react-router-dom";
 
 const Header = ({ isLoggedIn, onLogout }) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,10 +14,8 @@ const Header = ({ isLoggedIn, onLogout }) => {
     setExpandedSubmenu((prev) => (prev === name ? null : name));
   };
 
-  // Definisikan navLinks dengan 'path' untuk URL routing
   const navLinks = [
     { name: "Beranda", path: "/" },
-    { name: "Profil", path: "/profil" },
     {
       name: "Layanan",
       hasDropdown: true,
@@ -77,6 +76,28 @@ const Header = ({ isLoggedIn, onLogout }) => {
     },
   ];
 
+  const handleLinkClick = (e, action) => {
+    if (action) {
+      e.preventDefault();
+      onNavigate(action);
+      setActiveMenu("Layanan");
+    }
+    setServicesDropdownOpen(false);
+    setProfileDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
+
+  const handleTopNavClick = (e, name, action) => {
+    if (action) {
+      e.preventDefault();
+      onNavigate(action);
+    }
+    setActiveMenu(name);
+    setServicesDropdownOpen(false);
+    setProfileDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
+
   // Fungsi untuk menutup semua menu/dropdown
   const closeAllMenus = () => {
     setMobileMenuOpen(false);
@@ -110,6 +131,8 @@ const Header = ({ isLoggedIn, onLogout }) => {
     );
   };
 
+  const location = useLocation();
+
   return (
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
       <nav className="max-w-screen-xl w-full mx-auto px-8 py-2 flex justify-between items-center">
@@ -132,12 +155,20 @@ const Header = ({ isLoggedIn, onLogout }) => {
               {link.hasDropdown ? (
                 <div>
                   <button
-                    className="text-sm transition flex items-center text-gray-600 hover:text-green-800"
-                    onClick={() =>
-                      setOpenDropdown((prev) =>
-                        prev === link.name ? null : link.name
-                      )
-                    }
+                    className={`text-sm transition flex items-center ${
+                    openDropdown === link.name || 
+                    (link.dropdownItems &&
+                      link.dropdownItems.some(item => 
+                        item.path ? location.pathname.startsWith(item.path)
+                        : item.children?.some(sub => location.pathname.startsWith(sub.path))
+                      ))
+                      ? "text-green-800 font-semibold"
+                      : "text-gray-600 hover:text-green-800"
+                    }`}
+                    onClick={() => {
+                      setOpenDropdown((prev) => (prev === link.name ? null : link.name));
+                      setActiveMenu(link.name);
+                    }}
                   >
                     {link.name}
                     <svg
