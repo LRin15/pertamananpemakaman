@@ -251,6 +251,32 @@ const NewsPage = ({ onNavigate }) => {
             />
           </div>
 
+          {/* Category Filters */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  selectedCategory === category.id
+                    ? "bg-green-600 text-white shadow-lg"
+                    : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600 border border-gray-200"
+                }`}
+              >
+                {category.name}
+                <span
+                  className={`ml-2 px-2 py-1 rounded-full text-xs ${
+                    selectedCategory === category.id
+                      ? "bg-green-500 text-white"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                >
+                  {category.count}
+                </span>
+              </button>
+            ))}
+          </div>
+
           {/* Trending News Section */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -347,32 +373,6 @@ const NewsPage = ({ onNavigate }) => {
                 </svg>
               </button>
             </div>
-          </div>
-
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryChange(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category.id
-                    ? "bg-green-600 text-white shadow-lg"
-                    : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600 border border-gray-200"
-                }`}
-              >
-                {category.name}
-                <span
-                  className={`ml-2 px-2 py-1 rounded-full text-xs ${
-                    selectedCategory === category.id
-                      ? "bg-green-500 text-white"
-                      : "bg-gray-100 text-gray-500"
-                  }`}
-                >
-                  {category.count}
-                </span>
-              </button>
-            ))}
           </div>
         </div>
 
