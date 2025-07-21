@@ -830,17 +830,6 @@ const RegulationPage = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-6 py-12">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Dasar Hukum & Regulasi
-          </h1>
-          <p className="text-lg text-gray-600">
-            Kumpulan lengkap peraturan perundang-undangan yang menjadi landasan
-            hukum penyelenggaraan urusan pertamanan dan hutan kota DKI Jakarta
-          </p>
-        </div>
-
         {/* Search and Filter Section */}
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
           <div className="flex flex-col lg:flex-row gap-4">
