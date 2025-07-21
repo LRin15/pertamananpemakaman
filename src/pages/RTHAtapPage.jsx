@@ -1,4 +1,4 @@
-import { ArrowLeft, Droplets, Leaf, Home, Lightbulb } from "lucide-react";
+import { Droplets, Leaf, Home, Lightbulb } from "lucide-react";
 
 const RTHAtapPage = ({ onNavigate }) => {
   return (
