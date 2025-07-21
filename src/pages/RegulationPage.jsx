@@ -319,7 +319,7 @@ const RegulationPage = ({ onNavigate }) => {
 
     // PERGUB
     {
-      id: 33,
+      id: 34,
       category: "PERGUB",
       type: "09",
       number: "TAHUN 2022",
@@ -328,13 +328,13 @@ const RegulationPage = ({ onNavigate }) => {
       pdf: "/dasarhukum/PERGUB_NO._9_TAHUN_2022.pdf",
     },
     {
-      id: 34,
+      id: 35,
       category: "PERGUB",
       type: "120",
       number: "TAHUN 2016",
       title: "TENTANG PELAYANAN AMBULAN DAN MOBIL JENAZAH",
       year: "2016",
-      pdf: "/files/pergub-120-2016.pdf",
+      pdf: "/dasarhukum/PERGUB 120 Tahun 2016.pdf",
     },
     {
       id: 35,
@@ -467,7 +467,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "TAHUN 2022",
       title: "TENTANG PENYEDIAAN DAN PEMANFAATAN RUANG TERBUKA HIJAU",
       year: "2022",
-      pdf: "/files/permen-atr-14-2022.pdf",
+      pdf: "/dasarhukum/Permen ATR KBPN Nomor 14 Tahun 2022-dikompresi.pdf",
     },
     {
       id: 49,
@@ -489,7 +489,7 @@ const RegulationPage = ({ onNavigate }) => {
       title:
         "TENTANG PERUBAHAN ATAS PERATURAN PRESIDEN NOMOR 36 TAHUN 2005 TENTANG PENGADAAN TANAH BAGI PELAKSANAAN PEMBANGUNAN UNTUK KEPENTINGAN UMUM",
       year: "2006",
-      pdf: "/files/perpres-65-2006.pdf",
+      pdf: "/dasarhukum/PERPRES No.65 TH 2006.pdf",
     },
 
     // PP
@@ -521,7 +521,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "2013-2017",
       title: "RPJMD DKI JAKARTA 2013 2017",
       year: "2013",
-      pdf: "/files/rpjmd-dki-2013-2017.pdf",
+      pdf: "/dasarhukum/RPJMD2013-2017.pdf",
     },
 
     // SK
@@ -532,7 +532,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "TAHUN 2022",
       title: "TENTANG PPID DISTAMHUT",
       year: "2022",
-      pdf: "/files/sk-07-2022.pdf",
+      pdf: "/dasarhukum/SK 07 TAHUN 2022.pdf",
     },
 
     // UU
