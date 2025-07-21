@@ -25,7 +25,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "2021",
       title: "DINAS PERTAMANAN DAN HUTAN KOTA",
       year: "2021",
-      pdf: "/files/dinas-lakip-2021.pdf",
+      pdf: "/dasarhukum/DINAS LAKIP 2021.pdf",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "2022",
       title: "DINAS PERTAMANAN DAN HUTAN KOTA",
       year: "2022",
-      pdf: "/files/dinas-lakip-2022.pdf",
+      pdf: "/dasarhukum/DINAS LAKIP 2022.pdf",
     },
     {
       id: 4,
@@ -136,7 +136,7 @@ const RegulationPage = ({ onNavigate }) => {
       title:
         "TENTANG PENDATAAN RUANG TERBUKA HIJAU KE DALAM SISTEM INFORMASI SEMARAK HIJAU",
       year: "2024",
-      pdf: "/files/insekda-e0049-2024.pdf",
+      pdf: "/dasarhukum/INSEKDA e0049 TAHUN 2024.pdf",
     },
 
     // KEPGUB
@@ -148,7 +148,7 @@ const RegulationPage = ({ onNavigate }) => {
       title:
         "TENTANG BLOK MAKAM KHUSUS PADA TPU TPU DI WILAYAH DKI JAKARTA DAN KRITERIA PENGGUNAANNYA",
       year: "1985",
-      pdf: "/files/kepgub-697-1985.pdf",
+      pdf: "/dasarhukum/KEPGUB 697 TAHUN 1985.pdf",
     },
 
     // LAINNYA
@@ -159,7 +159,7 @@ const RegulationPage = ({ onNavigate }) => {
       number: "2010",
       title: "Jakarta Dalam Angka 2010",
       year: "2010",
-      pdf: "/files/jakarta-dalam-angka-2010.pdf",
+      pdf: "/dasarhukum/LAINNYA Jakarta Dalam Angka 2010.pdf",
     },
     {
       id: 17,
