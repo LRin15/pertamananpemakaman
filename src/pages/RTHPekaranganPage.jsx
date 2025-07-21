@@ -1,5 +1,4 @@
 import {
-  ArrowLeft,
   Droplets,
   Leaf,
   Home,
