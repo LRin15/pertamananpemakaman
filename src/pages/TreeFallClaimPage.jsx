@@ -346,7 +346,7 @@ const FallenTreeClaimPage = ({ onNavigate = () => {} }) => {
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
-                  1. Data Diri & Objek Klaim
+                  Data Diri & Objek Klaim
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                   <InputField
@@ -455,7 +455,7 @@ const FallenTreeClaimPage = ({ onNavigate = () => {} }) => {
                       d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
                     />
                   </svg>
-                  2. Unggah Berkas
+                  Unggah Berkas
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                   {renderFileUploads()}

@@ -1056,21 +1056,8 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 </div>
                 <button
                   onClick={() => onNavigate && onNavigate("park-application")}
-                  className="bg-[#22c55e] hover:bg-[#22c55e]/90 text-white px-4 py-2 rounded-lg font-medium flex items-center"
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium"
                 >
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
                   Ajukan
                 </button>
               </div>
