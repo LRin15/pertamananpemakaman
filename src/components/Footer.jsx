@@ -28,10 +28,10 @@ const Footer = () => {
             <h3 className="text-base font-semibold mb-3">Layanan Digital</h3>
             <ul className="space-y-2">
               {[
-                { label: "Cek Data Makam", href: "#", action: "cemetery-search"},
-                { label: "Jadwal Penggunaan Taman", href: "#", action: "park-schedule"},
-                { label: "Permohonan Pemangkasan Pohon", href: "#", action: "tree-application"},
-                { label: "Peta TPU dan RTH", href: "#", action:"map" },
+                { label: "Cek Data Makam", href: "cemetery-search"},
+                { label: "Jadwal Penggunaan Taman", href: "park-schedule"},
+                { label: "Permohonan Pemangkasan Pohon", href: "tree-application"},
+                { label: "Peta TPU dan RTH", href: "map" },
               ].map((item) => (
                 <li key={item.label}>
                   <a

@@ -133,18 +133,13 @@ const Header = ({ isLoggedIn, onLogout }) => {
 
   const location = useLocation();
 
-  return (
+   return (
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
       <nav className="max-w-screen-xl w-full mx-auto px-8 py-2 flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          to="/"
-          onClick={closeAllMenus}
-          className="flex items-center space-x-3"
-        >
+        <Link to="/" onClick={closeAllMenus} className="flex items-center space-x-3">
           <img src="/images/logo.png" alt="Logo DKI" className="h-10" />
           <span className="text-base font-semibold text-gray-800">
-            Dinas Pertamanan dan Hutan Kota
+            Dinas Pertamanan dan Pemakaman DKI Jakarta
           </span>
         </Link>
 
@@ -156,18 +151,20 @@ const Header = ({ isLoggedIn, onLogout }) => {
                 <div>
                   <button
                     className={`text-sm transition flex items-center ${
-                    openDropdown === link.name || 
-                    (link.dropdownItems &&
-                      link.dropdownItems.some(item => 
-                        item.path ? location.pathname.startsWith(item.path)
-                        : item.children?.some(sub => location.pathname.startsWith(sub.path))
-                      ))
-                      ? "text-green-800 font-semibold"
-                      : "text-gray-600 hover:text-green-800"
+                      openDropdown === link.name ||
+                      (link.dropdownItems &&
+                        link.dropdownItems.some((item) =>
+                          item.path
+                            ? location.pathname.startsWith(item.path)
+                            : item.children?.some((sub) =>
+                                location.pathname.startsWith(sub.path)
+                              )
+                        ))
+                        ? "text-green-800 font-semibold"
+                        : "text-gray-600 hover:text-green-800"
                     }`}
                     onClick={() => {
                       setOpenDropdown((prev) => (prev === link.name ? null : link.name));
-                      setActiveMenu(link.name);
                     }}
                   >
                     {link.name}
@@ -177,12 +174,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   {openDropdown === link.name && (
@@ -197,20 +189,13 @@ const Header = ({ isLoggedIn, onLogout }) => {
                               {item.name}
                               <svg
                                 className={`w-4 h-4 transform transition-transform ${
-                                  expandedSubmenu === item.name
-                                    ? "rotate-90"
-                                    : ""
+                                  expandedSubmenu === item.name ? "rotate-90" : ""
                                 }`}
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
                             </button>
                             {expandedSubmenu === item.name && (
@@ -222,11 +207,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
                                     className="block py-1 text-sm text-gray-600 hover:bg-green-50 hover:text-green-700 rounded px-2"
                                     onClick={closeAllMenus}
                                     target={sub.target}
-                                    rel={
-                                      sub.target === "_blank"
-                                        ? "noopener noreferrer"
-                                        : undefined
-                                    }
+                                    rel={sub.target === "_blank" ? "noopener noreferrer" : undefined}
                                   >
                                     {sub.name}
                                   </Link>
@@ -253,6 +234,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
               )}
             </div>
           ))}
+
           {!isLoggedIn ? (
             <Link
               to="/login"
@@ -273,12 +255,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </button>
               {isProfileDropdownOpen && (
@@ -315,24 +292,91 @@ const Header = ({ isLoggedIn, onLogout }) => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </nav>
 
       {/* Mobile Navigation */}
-      <div
-        className={`${
-          isMobileMenuOpen ? "block" : "hidden"
-        } md:hidden px-6 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-sm`}
-      >
-        {/* Konten mobile menu dirender di sini, logikanya sama dengan desktop */}
-        {/* ... Implementasi lengkap sama dengan di atas, tapi menggunakan NavLink dan Link */}
+      <div className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden px-6 pb-4 border-t border-gray-200 bg-white/95 backdrop-blur-sm`}>
+        {navLinks.map((link) => (
+          <div key={link.name} className="border-b border-gray-200 py-2">
+            {link.hasDropdown ? (
+              <div>
+                <button
+                  onClick={() => toggleSubmenu(link.name)}
+                  className="w-full text-left text-gray-800 font-medium flex justify-between items-center"
+                >
+                  {link.name}
+                  <span>{expandedSubmenu === link.name ? "-" : "+"}</span>
+                </button>
+                {expandedSubmenu === link.name && (
+                  <div className="ml-4 mt-1">
+                    {link.dropdownItems.map((item) =>
+                      item.children ? (
+                        <div key={item.name} className="mb-2">
+                          <p className="text-sm font-semibold text-gray-700">{item.name}</p>
+                          <div className="ml-2">
+                            {item.children.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                to={sub.path}
+                                className="block text-sm text-gray-600 py-1 hover:text-green-700"
+                                onClick={closeAllMenus}
+                                target={sub.target}
+                                rel={sub.target === "_blank" ? "noopener noreferrer" : undefined}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          to={item.path}
+                          className="block text-sm text-gray-600 py-1 hover:text-green-700"
+                          onClick={closeAllMenus}
+                        >
+                          {item.name}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+            ) : (
+              renderLink(link, true)
+            )}
+          </div>
+        ))}
+        <div className="mt-4">
+          {!isLoggedIn ? (
+            <Link
+              to="/login"
+              className="block bg-green-700 hover:bg-green-800 text-white text-center px-3 py-2 rounded-md text-sm font-medium"
+              onClick={closeAllMenus}
+            >
+              Login
+            </Link>
+          ) : (
+            <div className="text-sm text-gray-700">
+              <Link
+                to="/account-profile"
+                className="block py-2 hover:text-green-700"
+                onClick={closeAllMenus}
+              >
+                Profil
+              </Link>
+              <button
+                onClick={handleLogoutClick}
+                className="block w-full text-left py-2 hover:text-green-700"
+              >
+                Log out
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
