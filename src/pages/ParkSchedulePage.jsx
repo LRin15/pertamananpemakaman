@@ -8,9 +8,8 @@ const ParkSchedulePage = ({ onNavigate }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for mobile sidebar
 
-  // Sample events data (remains unchanged)
+  // Sample events data with more details
   const events = [
     {
       id: 1,
@@ -18,7 +17,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       time: "8:00",
       endTime: "10:00",
       duration: 2,
-      day: 1,
+      day: 1, // Monday
       color: "#0ea5e9",
       organizer: "Komunitas Ling Tien Kung Jakarta",
       description:
@@ -61,7 +60,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       time: "9:00",
       endTime: "10:00",
       duration: 1,
-      day: 2,
+      day: 2, // Tuesday
       color: "#22c55e",
       organizer: "Klub Senam Lansia",
       description:
@@ -104,7 +103,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       time: "9:00",
       endTime: "10:00",
       duration: 1,
-      day: 3,
+      day: 3, // Wednesday
       color: "#0ea5e9",
       organizer: "Komunitas Sehat Jakarta",
       description: "Senam aerobik untuk menjaga kebugaran tubuh",
@@ -146,7 +145,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       time: "10:00",
       endTime: "11:00",
       duration: 1,
-      day: 4,
+      day: 4, // Thursday
       color: "#22c55e",
       organizer: "Keluarga Besar Wijaya",
       description: "Piknik keluarga dengan berbagai permainan tradisional",
@@ -174,7 +173,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       time: "9:00",
       endTime: "11:00",
       duration: 2,
-      day: 5,
+      day: 5, // Friday
       color: "#0ea5e9",
       organizer: "MA FD Kafila Jakarta Timur",
       description: "Gathering dan diskusi santri tentang lingkungan hidup",
@@ -212,7 +211,6 @@ const ParkSchedulePage = ({ onNavigate }) => {
     "17:00",
   ];
 
-  // All helper functions (getDayName, getMonthName, etc.) remain unchanged
   const getDayName = (date) =>
     ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"][
       date.getDay()
@@ -233,6 +231,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       "Desember",
     ][date.getMonth()];
   const mapJsDayToEventDay = (jsDay) => (jsDay === 0 ? 7 : jsDay);
+
   const getEventsStartingAtTimeAndDay = (timeIndex, dayIndex) => {
     const targetEventDay = mapJsDayToEventDay(dayIndex);
     return events.filter((event) => {
@@ -241,6 +240,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       return event.day === targetEventDay && eventHour === slotHour;
     });
   };
+
   const getEventPosition = (event, timeIndex) => {
     const eventStartHour = Number.parseInt(event.time.split(":")[0]);
     const slotHour = Number.parseInt(timeSlots[timeIndex].split(":")[0]);
@@ -249,37 +249,36 @@ const ParkSchedulePage = ({ onNavigate }) => {
     }
     return null;
   };
+
   const navigateDay = (direction) => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + direction);
     setCurrentDate(newDate);
   };
+
   const navigateWeek = (direction) => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + direction * 7);
     setCurrentDate(newDate);
   };
+
   const navigateMonth = (direction) => {
     const newDate = new Date(currentDate);
     newDate.setDate(1);
     newDate.setMonth(currentDate.getMonth() + direction);
     setCurrentDate(newDate);
   };
+
   const handleEventClick = (event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedEvent(null);
   };
-  const getCurrentDayEvents = () => {
-    const currentDayOfWeek = currentDate.getDay();
-    const adjustedDay = mapJsDayToEventDay(currentDayOfWeek);
-    return events.filter((event) => event.day === adjustedDay);
-  };
 
-  // EventDetailModal component remains largely unchanged but is self-contained for clarity
   const EventDetailModal = () => {
     if (!selectedEvent) return null;
     const eventDayName = [
@@ -291,6 +290,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
       "Sabtu",
       "Minggu",
     ][selectedEvent.day - 1];
+
     return (
       <div className="fixed inset-0 backdrop-blur-sm bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-lg shadow-xl max-w-sm w-full">
@@ -317,12 +317,120 @@ const ParkSchedulePage = ({ onNavigate }) => {
               </button>
             </div>
           </div>
-          <div className="p-4 space-y-3 max-h-[80vh] overflow-y-auto">
-            {/* Modal content remains the same */}
+          <div className="p-4 space-y-3">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                {selectedEvent.title}
+              </h3>
+              <div
+                className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
+                  selectedEvent.status === "Disetujui"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-yellow-100 text-yellow-700"
+                }`}
+              >
+                {selectedEvent.status}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Jadwal Acara
+              </h4>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Hari: {eventDayName}</p>
+                <p>
+                  Waktu: {selectedEvent.time} - {selectedEvent.endTime} WIB (
+                  {selectedEvent.duration} jam)
+                </p>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+                Pengaju Acara
+              </h4>
+              <div className="text-sm text-gray-600">
+                <p className="font-medium">{selectedEvent.organizer}</p>
+                <p>Kontak: {selectedEvent.contact}</p>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+                Deskripsi
+              </h4>
+              <p className="text-sm text-gray-600">
+                {selectedEvent.description}
+              </p>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+                Peserta
+              </h4>
+              <p className="text-sm text-gray-600">
+                {selectedEvent.participants} orang
+              </p>
+            </div>
           </div>
         </div>
       </div>
     );
+  };
+
+  const getCurrentDayEvents = () => {
+    const currentDayOfWeek = currentDate.getDay();
+    const adjustedDay = mapJsDayToEventDay(currentDayOfWeek);
+    return events.filter((event) => event.day === adjustedDay);
   };
 
   const renderDailyView = () => {
@@ -332,6 +440,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
     const currentDayName = ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"][
       currentDate.getDay()
     ];
+
     return (
       <div className="flex-1 flex flex-col overflow-auto">
         <div className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
@@ -354,7 +463,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 />
               </svg>
             </button>
-            <h2 className="text-lg md:text-xl font-bold text-gray-800 text-center">
+            <h2 className="text-xl font-bold text-gray-800">
               {dayName}, {currentDate.getDate()} {monthName}{" "}
               {currentDate.getFullYear()}
             </h2>
@@ -379,9 +488,9 @@ const ParkSchedulePage = ({ onNavigate }) => {
           </div>
         </div>
         <div className="flex-1 overflow-auto">
-          <div className="grid grid-cols-[60px,1fr] border-b border-gray-200 bg-white sticky top-[85px] z-10">
+          <div className="grid grid-cols-6 border-b border-gray-200 bg-white sticky top-0 z-10">
             <div className="p-3"></div>
-            <div className="p-3 text-center border-l border-gray-200">
+            <div className="col-span-5 p-3 text-center border-l border-gray-200">
               <div className="text-sm text-gray-600 mb-1">{currentDayName}</div>
               <div className="text-2xl font-semibold">
                 {currentDate.getDate()}
@@ -398,22 +507,30 @@ const ParkSchedulePage = ({ onNavigate }) => {
               return (
                 <div
                   key={time}
-                  className="grid grid-cols-[60px,1fr] border-b border-gray-100 min-h-[60px]"
+                  className="grid grid-cols-6 border-b border-gray-100 min-h-[60px]"
                 >
                   <div className="p-3 text-sm text-gray-500 border-r border-gray-200 bg-white text-right">
                     {time}
                   </div>
-                  <div className="border-l border-gray-200 relative hover:bg-gray-50 transition-colors">
-                    {timeEvents.map((event) => (
+                  <div className="col-span-5 border-l border-gray-200 relative hover:bg-gray-50 transition-colors">
+                    {timeEvents.map((event, eventIndex) => (
                       <div
-                        key={event.id}
+                        key={eventIndex}
                         className="absolute left-0 right-0 top-0 p-2 text-sm font-medium cursor-pointer hover:shadow-lg transition-shadow border-l-4 mb-1"
                         style={{
                           backgroundColor:
-                            event.color === "#0ea5e9" ? "#dbeafe" : "#dcfce7",
+                            event.color === "#0ea5e9"
+                              ? "#dbeafe"
+                              : event.color === "#22c55e"
+                              ? "#dcfce7"
+                              : "#dbeafe",
                           borderLeftColor: event.color,
                           color:
-                            event.color === "#0ea5e9" ? "#1e40af" : "#166534",
+                            event.color === "#0ea5e9"
+                              ? "#1e40af"
+                              : event.color === "#22c55e"
+                              ? "#166534"
+                              : "#1e40af",
                           height: `${event.duration * 60 - 4}px`,
                           zIndex: 10,
                         }}
@@ -487,7 +604,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
               />
             </svg>
           </button>
-          <h2 className="text-lg md:text-xl font-bold text-gray-800">
+          <h2 className="text-xl font-bold text-gray-800">
             {monthName} {year}
           </h2>
           <button
@@ -509,60 +626,46 @@ const ParkSchedulePage = ({ onNavigate }) => {
             </svg>
           </button>
         </div>
-        <div className="grid grid-cols-7 sticky top-[85px] bg-white z-10">
+        <div className="grid grid-cols-7 sticky top-[77px] bg-white z-10">
           {["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"].map((day) => (
             <div
               key={day}
               className="text-center font-semibold text-gray-600 p-2 border-b border-r border-gray-200"
             >
-              <span className="hidden sm:inline">{day}</span>
-              <span className="sm:hidden">{day.charAt(0)}</span>
+              {day}
             </div>
           ))}
         </div>
         <div className="grid grid-cols-7 flex-1">
-          {calendarDays.map((dayInfo, index) => {
-            const eventsToShow = dayInfo.events.slice(0, 1);
-            const hiddenEventsCount =
-              dayInfo.events.length - eventsToShow.length;
-            return (
-              <div
-                key={index}
-                className={`border-t border-r border-gray-200 p-1 md:p-2 min-h-[90px] md:min-h-[120px] flex flex-col ${
-                  dayInfo.isCurrentMonth
-                    ? "bg-white"
-                    : "bg-gray-50 text-gray-400"
-                }`}
-              >
-                <div className="font-medium text-sm mb-1">{dayInfo.day}</div>
-                <div className="space-y-1 overflow-y-auto text-left">
-                  {eventsToShow.map((event) => (
-                    <div
-                      key={event.id}
-                      onClick={() =>
-                        handleEventClick({ ...event, date: dayInfo.date })
-                      }
-                      className="p-1 rounded-md text-xs cursor-pointer truncate"
-                      style={{
-                        backgroundColor:
-                          event.color === "#0ea5e9" ? "#dbeafe" : "#dcfce7",
-                        color:
-                          event.color === "#0ea5e9" ? "#1e40af" : "#166534",
-                        borderLeft: `3px solid ${event.color}`,
-                      }}
-                    >
-                      {event.title}
-                    </div>
-                  ))}
-                  {hiddenEventsCount > 0 && (
-                    <div className="text-xs text-gray-500 mt-1 pl-1 cursor-pointer">
-                      +{hiddenEventsCount} lainnya
-                    </div>
-                  )}
-                </div>
+          {calendarDays.map((dayInfo, index) => (
+            <div
+              key={index}
+              className={`border-t border-r border-gray-200 p-2 min-h-[120px] flex flex-col ${
+                dayInfo.isCurrentMonth ? "bg-white" : "bg-gray-50 text-gray-400"
+              }`}
+            >
+              <div className="font-medium text-sm mb-1">{dayInfo.day}</div>
+              <div className="space-y-1 overflow-y-auto">
+                {dayInfo.events.map((event) => (
+                  <div
+                    key={event.id}
+                    onClick={() =>
+                      handleEventClick({ ...event, date: dayInfo.date })
+                    }
+                    className="p-1 rounded-md text-xs cursor-pointer truncate"
+                    style={{
+                      backgroundColor:
+                        event.color === "#0ea5e9" ? "#dbeafe" : "#dcfce7",
+                      color: event.color === "#0ea5e9" ? "#1e40af" : "#166534",
+                      borderLeft: `3px solid ${event.color}`,
+                    }}
+                  >
+                    {event.title}
+                  </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -573,11 +676,13 @@ const ParkSchedulePage = ({ onNavigate }) => {
     startOfWeek.setDate(currentDate.getDate() - currentDate.getDay());
     const endOfWeek = new Date(startOfWeek);
     endOfWeek.setDate(startOfWeek.getDate() + 6);
+
     const weekDates = Array.from({ length: 7 }).map((_, i) => {
       const date = new Date(startOfWeek);
       date.setDate(startOfWeek.getDate() + i);
       return date;
     });
+
     const weekRangeString = () => {
       const startMonth = getMonthName(startOfWeek);
       const endMonth = getMonthName(endOfWeek);
@@ -588,7 +693,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
     };
 
     return (
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-auto">
         <div className="bg-white border-b border-gray-200 p-4 sticky top-0 z-20">
           <div className="flex items-center justify-between">
             <button
@@ -609,7 +714,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
                 />
               </svg>
             </button>
-            <h2 className="text-base md:text-xl font-bold text-gray-800 text-center">
+            <h2 className="text-xl font-bold text-gray-800">
               {weekRangeString()}
             </h2>
             <button
@@ -633,77 +738,75 @@ const ParkSchedulePage = ({ onNavigate }) => {
           </div>
         </div>
         <div className="flex-1 overflow-auto">
-          <div className="min-w-[800px]">
-            <div className="grid grid-cols-8 border-b border-gray-200 bg-white sticky top-0 z-10">
-              <div className="p-3"></div> {/* Time column header */}
-              {weekDates.map((date) => (
-                <div
-                  key={date.toISOString()}
-                  className="p-3 text-center border-l border-gray-200"
-                >
-                  <div className="text-xs text-gray-600 mb-1">
-                    {
-                      ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"][
-                        date.getDay()
-                      ]
-                    }
-                  </div>
-                  <div className="text-xl font-semibold">{date.getDate()}</div>
+          <div className="grid grid-cols-8 border-b border-gray-200 bg-white sticky top-0 z-10">
+            <div className="p-3"></div>
+            {weekDates.map((date) => (
+              <div
+                key={date.toISOString()}
+                className="p-3 text-center border-l border-gray-200"
+              >
+                <div className="text-xs text-gray-600 mb-1">
+                  {
+                    ["MIN", "SEN", "SEL", "RAB", "KAM", "JUM", "SAB"][
+                      date.getDay()
+                    ]
+                  }
                 </div>
-              ))}
-            </div>
-            <div className="relative">
-              {timeSlots.map((time, timeIndex) => (
-                <div
-                  key={time}
-                  className="grid grid-cols-8 border-b border-gray-100 min-h-[60px]"
-                >
-                  <div className="p-3 text-sm text-gray-500 border-r border-gray-200 bg-white text-right">
-                    {time}
-                  </div>
-                  {weekDates.map((date, dayIndex) => (
-                    <div
-                      key={date.toISOString()}
-                      className="border-l border-gray-200 relative hover:bg-gray-50 transition-colors"
-                    >
-                      {getEventsStartingAtTimeAndDay(timeIndex, dayIndex).map(
-                        (event) => {
-                          const position = getEventPosition(event, timeIndex);
-                          if (!position) return null;
-                          return (
-                            <div
-                              key={event.id}
-                              className="absolute left-0 right-0 top-0 p-2 text-xs font-medium cursor-pointer hover:shadow-lg transition-shadow border-l-4 mb-1"
-                              style={{
-                                backgroundColor:
-                                  event.color === "#0ea5e9"
-                                    ? "#dbeafe"
-                                    : event.color === "#22c55e"
-                                    ? "#dcfce7"
-                                    : "#dbeafe",
-                                borderLeftColor: event.color,
-                                color:
-                                  event.color === "#0ea5e9"
-                                    ? "#1e40af"
-                                    : event.color === "#22c55e"
-                                    ? "#166534"
-                                    : "#1e40af",
-                                height: `${event.duration * 60 - 4}px`,
-                                zIndex: position.zIndex,
-                              }}
-                              onClick={() => handleEventClick(event)}
-                            >
-                              <div className="font-semibold">{event.time}</div>
-                              <div className="leading-tight">{event.title}</div>
-                            </div>
-                          );
-                        }
-                      )}
-                    </div>
-                  ))}
+                <div className="text-xl font-semibold">{date.getDate()}</div>
+              </div>
+            ))}
+          </div>
+          <div className="relative">
+            {timeSlots.map((time, timeIndex) => (
+              <div
+                key={time}
+                className="grid grid-cols-8 border-b border-gray-100 min-h-[60px]"
+              >
+                <div className="p-3 text-sm text-gray-500 border-r border-gray-200 bg-white text-right">
+                  {time}
                 </div>
-              ))}
-            </div>
+                {weekDates.map((date, dayIndex) => (
+                  <div
+                    key={date.toISOString()}
+                    className="border-l border-gray-200 relative hover:bg-gray-50 transition-colors"
+                  >
+                    {getEventsStartingAtTimeAndDay(timeIndex, dayIndex).map(
+                      (event, eventIndex) => {
+                        const position = getEventPosition(event, timeIndex);
+                        if (!position) return null;
+                        return (
+                          <div
+                            key={eventIndex}
+                            className="absolute left-0 right-0 top-0 p-2 text-xs font-medium cursor-pointer hover:shadow-lg transition-shadow border-l-4 mb-1"
+                            style={{
+                              backgroundColor:
+                                event.color === "#0ea5e9"
+                                  ? "#dbeafe"
+                                  : event.color === "#22c55e"
+                                  ? "#dcfce7"
+                                  : "#dbeafe",
+                              borderLeftColor: event.color,
+                              color:
+                                event.color === "#0ea5e9"
+                                  ? "#1e40af"
+                                  : event.color === "#22c55e"
+                                  ? "#166534"
+                                  : "#1e40af",
+                              height: `${event.duration * 60 - 4}px`,
+                              zIndex: position.zIndex,
+                            }}
+                            onClick={() => handleEventClick(event)}
+                          >
+                            <div className="font-semibold">{event.time}</div>
+                            <div className="leading-tight">{event.title}</div>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -885,38 +988,20 @@ const ParkSchedulePage = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col w-full">
+        <div className="flex-1 flex flex-col">
           <div className="bg-white border-b border-gray-200 p-3">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2 md:gap-4">
-                <button
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="p-2 hover:bg-gray-100 rounded-lg lg:hidden"
-                >
-                  <svg
-                    className="w-6 h-6 text-gray-700"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    ></path>
-                  </svg>
-                </button>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
                 <button
                   onClick={() => setCurrentDate(new Date())}
                   className="border px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
                 >
                   Hari Ini
                 </button>
-                <div className="flex gap-1 md:gap-2">
+                <div className="flex gap-2">
                   <button
                     onClick={() => setViewMode("Harian")}
-                    className={`px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
+                    className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
                       viewMode === "Harian"
                         ? "bg-[#fdd835] text-black"
                         : "text-gray-600 hover:bg-gray-100"
@@ -926,7 +1011,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
                   </button>
                   <button
                     onClick={() => setViewMode("Mingguan")}
-                    className={`px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
+                    className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
                       viewMode === "Mingguan"
                         ? "bg-[#fdd835] text-black"
                         : "text-gray-600 hover:bg-gray-100"
@@ -936,7 +1021,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
                   </button>
                   <button
                     onClick={() => setViewMode("Bulanan")}
-                    className={`px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
+                    className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
                       viewMode === "Bulanan"
                         ? "bg-[#fdd835] text-black"
                         : "text-gray-600 hover:bg-gray-100"
@@ -946,8 +1031,8 @@ const ParkSchedulePage = ({ onNavigate }) => {
                   </button>
                 </div>
               </div>
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="relative flex-grow sm:flex-grow-0">
+              <div className="flex items-center gap-3">
+                <div className="relative">
                   <svg
                     className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
                     fill="none"
@@ -966,7 +1051,7 @@ const ParkSchedulePage = ({ onNavigate }) => {
                     placeholder="Taman WIJAYA KUSUMA"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   />
                 </div>
                 <button
