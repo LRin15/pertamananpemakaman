@@ -132,20 +132,6 @@ const HeroCarousel = () => {
           />
         ))}
       </div>
-
-      {/* Search Bar */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 w-full max-w-2xl px-6">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Cari informasi makam, layanan, atau lokasi..."
-            className="w-full py-2 px-4 pr-12 rounded-full text-gray-800 bg-white/95 backdrop-blur-sm shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 placeholder-gray-500"
-          />
-          <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-green-700 hover:bg-green-800 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200">
-            <Search className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
     </section>
   );
 };
