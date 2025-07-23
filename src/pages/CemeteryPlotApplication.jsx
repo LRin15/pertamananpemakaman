@@ -79,12 +79,14 @@ const CemeteryDataSearchPage = ({ onNavigate }) => {
   }, [])
 
   const handleViewDetail = (item) => {
-    alert(`Detail untuk ${item.namaJenazah} di ${item.tpu}`)
+    setSelectedDetail(item)
   }
 
   const clearDate = (field) => {
     setSearchData((prev) => ({ ...prev, [field]: "" }))
   }
+
+  const [selectedDetail, setSelectedDetail] = useState(null)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -193,6 +195,30 @@ const CemeteryDataSearchPage = ({ onNavigate }) => {
           </div>
         )}
       </div>
+      {selectedDetail && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+          <div className="bg-white border border-gray-300 rounded-lg shadow-lg max-w-xl w-full p-6 relative">
+            <button
+              onClick={() => setSelectedDetail(null)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+            <h2 className="text-xl font-semibold text-green-700 mb-4">Detail Jenazah</h2>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+              <div><strong>Nama Jenazah:</strong> {selectedDetail.namaJenazah}</div>
+              <div><strong>Ahli Waris:</strong> {selectedDetail.namaAhliwaris || "-"}</div>
+              <div><strong>Tanggal Meninggal:</strong> {selectedDetail.tglMeninggal}</div>
+              <div><strong>Tanggal Pemakaman:</strong> {selectedDetail.tglKubur || "-"}</div>
+              <div><strong>TPU:</strong> {selectedDetail.tpu}</div>
+              <div><strong>Unit:</strong> {selectedDetail.unit}</div>
+              <div><strong>Blok:</strong> {selectedDetail.blok}</div>
+              <div><strong>Blad:</strong> {selectedDetail.blad}</div>
+              <div><strong>Petak:</strong> {selectedDetail.petak}</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

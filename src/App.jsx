@@ -34,6 +34,7 @@ import TreeFallClaimPage from "./pages/TreeFallClaimPage";
 import AccountProfilePage from "./pages/AccountProfilePage";
 import CemeteryDataSearchPage from "./pages/CemeteryPlotApplication";
 import CemeteryAvailabilityPage from "./pages/CemeteryAvailabilityPage";
+import CorpseHandling from "./pages/CorpseHandling";
 import StrukturOrganisasiPage from "./pages/StrukturOrganisasiPage";
 import VisiMisiPage from "./pages/VisiMisiPage";
 import TugasFungsiPage from "./pages/TugasFungsiPage";
@@ -198,6 +199,10 @@ const AppContent = () => {
           <Route
             path="/cemetery-availability"
             element={<CemeteryAvailabilityPage onNavigate={handleNavigate} />}
+          />
+          <Route
+            path="/corpse-handling"
+            element={<CorpseHandling onNavigate={handleNavigate} />}
           />
           <Route
             path="/struktur-organisasi"

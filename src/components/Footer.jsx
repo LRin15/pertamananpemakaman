@@ -31,7 +31,7 @@ const Footer = () => {
                 { label: "Cek Data Makam", href: "#", action: "cemetery-search"},
                 { label: "Jadwal Penggunaan Taman", href: "#", action: "park-schedule"},
                 { label: "Permohonan Pemangkasan Pohon", href: "#", action: "tree-application"},
-                { label: "Peta TPU dan RTH", href: "#" },
+                { label: "Peta TPU dan RTH", href: "#", action:"map" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
